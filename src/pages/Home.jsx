@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
 import { Link } from 'react-router-dom';
-import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaMicroscope, FaQuoteLeft } from 'react-icons/fa';
+import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaMicroscope } from 'react-icons/fa';
 import { InteractiveGlobe } from '../components/InteractiveGlobe';
 import { useSEO } from '../hooks/useSEO';
 
@@ -156,44 +156,63 @@ export const Home = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-navy z-0">
+      {/* Split Hero Section */}
+      <section className="min-h-[92vh] flex items-center relative overflow-hidden pt-24 pb-12">
+        {/* Globe Background */}
+        <div className="absolute inset-0 z-0">
           <InteractiveGlobe />
-
         </div>
         
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto bg-navy/65 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-teal/20 shadow-[0_20px_60px_rgba(0,0,0,0.9)]"
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-              <span className="text-teal drop-shadow-[0_0_20px_rgba(100,255,218,0.4)]">Building Skills.</span><br className="md:hidden" /> Creating Solutions.
-            </h1>
+        {/* Hero Grid Container */}
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
             
-            <p className="text-base md:text-xl text-text-muted max-w-3xl mx-auto mb-6 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.
-            </p>
-            
-            <div className="text-lg md:text-2xl mb-8 h-8 font-medium">
-              Expertise in <TypingEffect words={typingWords} />
-            </div>
+            {/* Left Column: Typography & CTAs (60% width on desktop) */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-7 text-left"
+            >
+              {/* Tag badge */}
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/10 border border-teal/30 text-teal text-xs font-bold uppercase tracking-widest mb-6">
+                <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
+                Next-Gen Technology Partner
+              </span>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button to="/contact" variant="primary" className="w-full sm:w-auto text-base py-3.5 px-7">
-                Book a Free Consultation →
-              </Button>
-              <Button to="/services" variant="secondary" className="w-full sm:w-auto text-base py-3.5 px-7">
-                Explore Services →
-              </Button>
-              <Button to="/academy" variant="ghost" className="w-full sm:w-auto text-base py-3.5 px-7">
-                Join the Academy →
-              </Button>
-            </div>
-          </motion.div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal via-teal-light to-white">
+                  Building Skills.
+                </span>
+                <br />
+                Creating Solutions.
+              </h1>
+              
+              <p className="text-base sm:text-lg text-text-muted mb-8 leading-relaxed font-normal max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.
+              </p>
+              
+              <div className="text-lg sm:text-xl mb-10 h-8 font-medium">
+                Expertise in <TypingEffect words={typingWords} />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Button to="/contact" variant="primary" className="text-base py-3.5 px-7">
+                  Book Free Consultation →
+                </Button>
+                <Button to="/services" variant="secondary" className="text-base py-3.5 px-7">
+                  Explore Services →
+                </Button>
+                <Button to="/academy" variant="ghost" className="text-base py-3.5 px-7">
+                  Join Academy →
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Free space for 3D Globe motion viewing (40% width) */}
+            <div className="lg:col-span-5 hidden lg:block h-[480px] pointer-events-none" />
+
+          </div>
         </div>
         
         {/* Scroll Indicator */}
@@ -201,10 +220,10 @@ export const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-20 pointer-events-none"
         >
-          <div className="w-[30px] h-[50px] rounded-full border-2 border-teal/50 flex justify-center p-2">
-            <div className="w-1 h-3 bg-teal rounded-full animate-slide-up"></div>
+          <div className="w-[28px] h-[46px] rounded-full border-2 border-teal/40 flex justify-center p-2">
+            <div className="w-1 h-2.5 bg-teal rounded-full animate-slide-up" />
           </div>
         </motion.div>
       </section>

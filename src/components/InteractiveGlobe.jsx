@@ -164,11 +164,11 @@ export const InteractiveGlobe = () => {
       const W = canvas.width;
       const H = canvas.height;
 
-      // Offset globe center slightly down-right on larger screens so hero text has max contrast
-      const isMobile = W < 768;
-      const cx = isMobile ? W / 2 : W * 0.52;
-      const cy = isMobile ? H / 2 : H * 0.50;
-      const R = Math.min(W, H) * (isMobile ? 0.36 : 0.38);
+      // Position globe in the right column on desktop, and below text on mobile
+      const isMobile = W < 1024;
+      const cx = isMobile ? W / 2 : W * 0.70;
+      const cy = isMobile ? H * 0.68 : H * 0.50;
+      const R = Math.min(W, H) * (isMobile ? 0.32 : 0.38);
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 
