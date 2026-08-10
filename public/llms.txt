@@ -1,0 +1,27 @@
+# Salinova Tech LTD
+
+> Custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.
+
+## About
+Salinova Tech LTD is a technology company based in Kilifi County, Kenya. Founded to bridge the technology gap in East Africa, we combine software development, cybersecurity, technology education, and research under one roof.
+
+## Services
+- Custom Software Development (websites, mobile apps, enterprise systems, SaaS)
+- Cybersecurity (penetration testing, vulnerability assessments, security training)
+- Technology Academy (practical courses in Python, React, Cybersecurity, AI)
+- Artificial Intelligence (AI assistants, chatbots, predictive analytics)
+- Research & Innovation (blockchain, IoT, smart cities)
+
+## Industry Focus
+- Education (student management systems, LMS, e-learning platforms)
+- Banking & Finance (core banking integrations, AML, digital KYC)
+- Healthcare (EMR systems, hospital management, telemedicine)
+
+## Contact
+- Location: Kilifi County, Kenya
+- Email: info@salinovatech.com
+- Phone: +254 XXX XXX XXX
+- Website: https://salinovatech.com
+
+## Tagline
+Building Skills. Creating Solutions.

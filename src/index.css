@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* ================================================
+   TAILWIND v4 THEME — All custom design tokens
+   ================================================ */
+@theme {
+  /* Colors — Navy */
+  --color-navy: #0A192F;
+  --color-navy-light: #172A45;
+  --color-navy-dark: #060C1F;
+
+  /* Colors — Teal accent */
+  --color-teal: #64FFDA;
+  --color-teal-dark: #4CD8C4;
+  --color-teal-light: #88FFE8;
+
+  /* Colors — Orange brand accent (from training materials) */
+  --color-orange: #F96900;
+  --color-orange-dark: #C45200;
+  --color-orange-light: #FFB347;
+
+  /* Colors — Text */
+  --color-text: #E6F1FF;
+  --color-text-muted: #8892B0;
+
+  /* Typography */
+  --font-family-inter: 'Inter', sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.8s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-20px); }
+  }
+}
+
+/* ================================================
+   BASE STYLES
+   ================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-navy);
+    color: var(--color-text);
+    font-family: var(--font-family-inter);
+  }
+}
+
+/* ================================================
+   UTILITIES
+   ================================================ */
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .font-inter {
+    font-family: var(--font-family-inter);
+  }
+}

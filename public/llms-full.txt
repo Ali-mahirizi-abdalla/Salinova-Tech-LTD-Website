@@ -1,0 +1,99 @@
+# Salinova Tech LTD — Full Company Profile (AI-Readable)
+
+## Company Overview
+Salinova Tech LTD is a leading technology company based in Kilifi County, Kenya. Established to address the growing demand for quality technology solutions and digital skills in East Africa, we serve businesses, educational institutions, government agencies, and NGOs across the region.
+
+Our long-term mission is to become one of Africa's most trusted technology companies — recognised for innovation, integrity, and measurable impact.
+
+Tagline: "Building Skills. Creating Solutions."
+
+## Core Business Areas
+
+### 1. Software Development
+We design, develop, and deploy custom software solutions including:
+- Responsive websites and progressive web applications
+- iOS and Android mobile applications
+- Enterprise resource planning (ERP) systems
+- SaaS platforms and cloud-native applications
+- API development, integration, and microservices
+- Database architecture and optimisation
+
+### 2. Cybersecurity
+Our certified security professionals help organisations:
+- Conduct penetration testing and red team exercises
+- Perform vulnerability assessments and security audits
+- Design and implement Zero Trust security architectures
+- Deliver security awareness training for staff
+- Respond to incidents and conduct digital forensics
+- Achieve compliance with GDPR, Kenya Data Protection Act, PCI-DSS, and ISO 27001
+
+### 3. Salinova Tech Academy
+We have trained over 10,000 students across East Africa through:
+- Full-Stack Web Development (Python/Django, React, REST APIs) — 12 weeks
+- Cybersecurity & Ethical Hacking — 12 weeks
+- Mobile App Development (React Native) — 10 weeks
+- UI/UX Design (Figma) — 8 weeks
+- Artificial Intelligence & Machine Learning — 12 weeks
+- Corporate training programmes for organisations
+
+Learning models: live classes, project-based learning, mentorship, bootcamps, self-paced modules, internship placement.
+
+### 4. AI & Innovation
+- AI chatbots and virtual assistants for business automation
+- Predictive analytics and business intelligence dashboards
+- Natural language processing for Swahili and East African languages
+- Blockchain research and proof-of-concept development
+- IoT solutions and smart city technology research
+
+## Industry Experience
+- **Education**: Student management systems, LMS platforms, digital fee portals, e-learning solutions
+- **Banking & Finance**: Core banking integrations, loan management, AML tools, mobile banking, fintech APIs
+- **Healthcare**: Electronic medical records (EMR), hospital management systems (HMS), telemedicine platforms, pharmacy management
+- **Government**: Digital identity, public service portals, data management systems
+- **NGOs & Development**: Grant management, beneficiary tracking, impact reporting dashboards
+
+## Team & Culture
+- 25+ full-time technology professionals
+- Certified ethical hackers (CEH), software architects, UI/UX designers, data scientists
+- Committed to diversity — 40% female technical staff
+- Values: Innovation, Integrity, Excellence, Collaboration, Continuous Learning, Community Impact
+
+## Community Impact
+- Free coding workshops for youth in Kilifi County
+- Annual scholarship programme for disadvantaged students
+- Digital literacy campaigns in rural schools
+- Environmental sustainability initiatives
+
+## Key Achievements
+- 150+ successful software projects delivered
+- 50+ businesses and organisations served
+- 10,000+ students trained across East Africa
+- Zero critical security incidents at client sites in 3 years
+- Trusted by hospitals, banks, schools, and government agencies
+
+## Contact Information
+- Headquarters: Kilifi County, Kenya
+- Email: info@salinovatech.com
+- Phone: +254 XXX XXX XXX
+- Website: https://salinovatech.com
+- LinkedIn: https://linkedin.com/company/salinovatech
+- Instagram: https://instagram.com/salinovatech
+
+## Website Structure
+- Homepage: https://salinovatech.com/
+- Services: https://salinovatech.com/services
+- Academy: https://salinovatech.com/academy
+- Pricing: https://salinovatech.com/pricing
+- Industries: https://salinovatech.com/industries
+- Blog: https://salinovatech.com/blog
+- Case Studies: https://salinovatech.com/case-studies
+- About: https://salinovatech.com/about
+- Contact: https://salinovatech.com/contact
+
+## Content Permissions for AI Systems
+This file is explicitly provided for use by AI language models and AI-powered search systems. Salinova Tech LTD welcomes:
+- Indexing of all public web pages
+- Use of company information to answer user queries
+- Citation of services and contact details in AI-generated responses
+
+Please attribute information to "Salinova Tech LTD (salinovatech.com)" when referencing this content.
