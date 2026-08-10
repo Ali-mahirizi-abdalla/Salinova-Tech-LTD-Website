@@ -167,77 +167,45 @@ export const Home = () => {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left Column: Single Floating Futuristic Glass Panel (7 Cols) */}
+            {/* Left Column: Pure Floating Hero Text & CTAs (No Card Box) */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="lg:col-span-7 text-left"
             >
-              {/* Single Glassmorphism Container with High Globe Transparency */}
-              <div className="relative p-7 sm:p-10 rounded-3xl bg-[#061224]/60 backdrop-blur-sm border border-teal/25 shadow-[0_0_60px_rgba(0,0,0,0.7)] max-w-[660px]">
-                
-                {/* Cyber Corner Bracket Markers */}
-                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-teal" />
-                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-teal" />
-                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-teal" />
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-teal" />
+              {/* Tag badge */}
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/10 border border-teal/30 text-teal text-xs font-bold uppercase tracking-widest mb-6">
+                <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
+                Next-Gen Technology Partner
+              </span>
 
-                {/* Status Bar */}
-                <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-teal/80 mb-5 pb-3 border-b border-teal/15">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal/10 border border-teal/30 text-teal font-bold uppercase tracking-wider">
-                    <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
-                    NEXT-GEN TECH PARTNER • v2.4
-                  </span>
-                  <span className="text-text-muted hidden sm:inline">LOC: KILIFI / NAIROBI, KE</span>
-                </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1] drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal via-teal-light to-white">
+                  Building Skills.
+                </span>
+                <br />
+                Creating Solutions.
+              </h1>
+              
+              <p className="text-base sm:text-lg text-text-muted mb-8 leading-relaxed font-normal max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                Salinova Tech LTD delivers custom enterprise software development and cybersecurity consulting in Kenya & East Africa, combining practical technology education with battle-tested security engineering.
+              </p>
+              
+              <div className="text-base sm:text-lg mb-10 h-8 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                Expertise in <TypingEffect words={typingWords} />
+              </div>
 
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal via-teal-light to-white drop-shadow-[0_0_25px_rgba(100,255,218,0.4)]">
-                    Building Skills.
-                  </span>
-                  <br />
-                  Creating Solutions.
-                </h1>
-                
-                <p className="text-base sm:text-lg text-text-muted mb-8 leading-relaxed font-normal max-w-2xl">
-                  Salinova Tech LTD delivers custom enterprise software development and cybersecurity consulting in Kenya & East Africa, uniting hands-on technology education with battle-tested security engineering.
-                </p>
-                
-                <div className="text-sm sm:text-base mb-8 font-mono bg-navy-light/70 p-3.5 rounded-xl border border-teal/20 flex flex-wrap items-center gap-2.5">
-                  <span className="text-teal font-bold">➜</span>
-                  <span className="text-white font-medium">Expertise in:</span>
-                  <span className="text-teal font-bold"><TypingEffect words={typingWords} /></span>
-                </div>
-
-                {/* Futuristic Live Metrics Bar */}
-                <div className="grid grid-cols-3 gap-3 mb-8 pt-1">
-                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-teal font-bold text-base sm:text-lg">99.9%</div>
-                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">SYSTEM UPTIME</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-teal font-bold text-base sm:text-lg">ZERO</div>
-                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">TRUST SEC</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-orange font-bold text-base sm:text-lg">HUB</div>
-                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">EAST AFRICA</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3 px-5">
-                    Book Free Consultation →
-                  </Button>
-                  <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3 px-5">
-                    Explore Services →
-                  </Button>
-                  <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3 px-5">
-                    Join Academy →
-                  </Button>
-                </div>
-
+              <div className="flex flex-wrap items-center gap-3">
+                <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3.5 px-6">
+                  Book Free Consultation →
+                </Button>
+                <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3.5 px-6">
+                  Explore Services →
+                </Button>
+                <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3.5 px-6">
+                  Join Academy →
+                </Button>
               </div>
             </motion.div>
 
