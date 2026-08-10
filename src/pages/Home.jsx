@@ -209,8 +209,8 @@ export const Home = () => {
               </div>
             </motion.div>
 
-            {/* Right Column: Free space for 3D Globe motion viewing (40% width) */}
-            <div className="lg:col-span-5 hidden lg:block h-[480px] pointer-events-none" />
+            {/* Right Column: Space allocation for 3D Globe motion viewing */}
+            <div className="lg:col-span-5 block h-[360px] sm:h-[420px] lg:h-[500px] pointer-events-none" />
 
           </div>
         </div>
