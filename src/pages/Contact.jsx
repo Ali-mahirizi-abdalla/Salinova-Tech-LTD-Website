@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 
 const FORMSPREE_ID = 'xyegeopl';
@@ -9,18 +9,7 @@ const FORMSPREE_ID = 'xyegeopl';
 export const Contact = () => {
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
-  useSEO({
-    title: 'Contact Salinova Tech LTD — Book a Free Consultation',
-    description:
-      'Get in touch with Salinova Tech LTD to discuss software development, cybersecurity, or training needs for your business in Kenya and East Africa.',
-    path: '/contact',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      name: 'Contact Salinova Tech LTD',
-      url: 'https://salinovatech.com/contact',
-    },
-  });
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +43,18 @@ export const Contact = () => {
 
   return (
     <div className="py-20">
+      <SEO {...{
+    title: 'Contact Salinova Tech LTD — Book a Free Consultation',
+    description:
+      'Get in touch with Salinova Tech LTD to discuss software development, cybersecurity, or training needs for your business in Kenya and East Africa.',
+    path: '/contact',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact Salinova Tech LTD',
+      url: 'https://salinovatech.com/contact',
+    },
+  }} />
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <span className="inline-block text-teal text-sm font-bold uppercase tracking-widest mb-4">Let's Talk</span>

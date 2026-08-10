@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaPython, FaReact, FaShieldAlt, FaMobileAlt, FaPaintBrush, FaBrain, FaVideo, FaProjectDiagram, FaUserTie, FaLaptop, FaCampground, FaBriefcase, FaChalkboardTeacher } from 'react-icons/fa';
 
 const CourseCard = ({ icon, title, duration, level, desc, skills }) => (
@@ -36,19 +36,7 @@ const CourseCard = ({ icon, title, duration, level, desc, skills }) => (
 );
 
 export const Academy = () => {
-  useSEO({
-    title: 'Salinova Tech Academy — Courses in Coding, Cybersecurity & AI',
-    description:
-      'Learn Full-Stack Web Development, Cybersecurity, React, Mobile App Development, and AI at Salinova Tech Academy in Kenya. Over 10,000 students trained.',
-    path: '/academy',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'EducationalOrganization',
-      name: 'Salinova Tech Academy',
-      url: 'https://salinovatech.com/academy',
-      description: 'Practical technology training for the digital economy in Kenya and East Africa.',
-    },
-  });
+  
 
   const courses = [
     {
@@ -113,6 +101,19 @@ export const Academy = () => {
 
   return (
     <div>
+      <SEO {...{
+    title: 'Salinova Tech Academy — Courses in Coding, Cybersecurity & AI',
+    description:
+      'Learn Full-Stack Web Development, Cybersecurity, React, Mobile App Development, and AI at Salinova Tech Academy in Kenya. Over 10,000 students trained.',
+    path: '/academy',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOrganization',
+      name: 'Salinova Tech Academy',
+      url: 'https://salinovatech.com/academy',
+      description: 'Practical technology training for the digital economy in Kenya and East Africa.',
+    },
+  }} />
       {/* Hero */}
       <section className="py-24 relative overflow-hidden bg-navy-light/30 border-b border-teal/10">
         <div className="container mx-auto px-6 lg:px-12 text-center relative z-10">

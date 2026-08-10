@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaCheck, FaGraduationCap, FaCode, FaShieldAlt, FaBrain, FaStar } from 'react-icons/fa';
 
 const AcademyPlan = ({ icon, title, duration, price, priceNote, features, highlight, level }) => (
@@ -79,19 +79,7 @@ const BusinessPlan = ({ name, subtitle, price, priceNote, features, highlight })
 export const Pricing = () => {
   const [activeTab, setActiveTab] = useState('academy');
 
-  useSEO({
-    title: 'Pricing — Salinova Tech LTD Academy & Business Services',
-    description:
-      'Transparent pricing for Salinova Tech LTD courses and cybersecurity / software development services in Kenya and East Africa.',
-    path: '/pricing',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Pricing',
-      url: 'https://salinovatech.com/pricing',
-      description: 'Pricing for Salinova Tech LTD courses and business services.',
-    },
-  });
+  
 
   const academyCourses = [
     {
@@ -205,6 +193,19 @@ export const Pricing = () => {
 
   return (
     <div>
+      <SEO {...{
+    title: 'Pricing — Salinova Tech LTD Academy & Business Services',
+    description:
+      'Transparent pricing for Salinova Tech LTD courses and cybersecurity / software development services in Kenya and East Africa.',
+    path: '/pricing',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Pricing',
+      url: 'https://salinovatech.com/pricing',
+      description: 'Pricing for Salinova Tech LTD courses and business services.',
+    },
+  }} />
       {/* Hero */}
       <section className="py-24 text-center relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-teal/5 rounded-full blur-[120px] pointer-events-none" />

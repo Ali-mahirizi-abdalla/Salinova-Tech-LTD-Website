@@ -1,16 +1,11 @@
 import React from 'react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaLightbulb, FaShieldAlt, FaStar, FaHandsHelping, FaBookOpen, FaGlobeAfrica } from 'react-icons/fa';
 
 export const About = () => {
-  useSEO({
-    title: 'About Us — Salinova Tech LTD | Technology & Skills in East Africa',
-    description:
-      'Salinova Tech LTD is a technology company in Kilifi County, Kenya, combining custom software development, cybersecurity, and technology education across East Africa.',
-    path: '/about',
-  });
+  
 
   const values = [
     { icon: <FaLightbulb />, title: "Innovation", desc: "We embrace creativity and continuously develop modern solutions." },
@@ -23,6 +18,12 @@ export const About = () => {
 
   return (
     <div>
+      <SEO {...{
+    title: 'About Us — Salinova Tech LTD | Technology & Skills in East Africa',
+    description:
+      'Salinova Tech LTD is a technology company in Kilifi County, Kenya, combining custom software development, cybersecurity, and technology education across East Africa.',
+    path: '/about',
+  }} />
       {/* Hero */}
       <section className="py-20 text-center border-b border-teal/10">
         <div className="container mx-auto px-6 lg:px-12">

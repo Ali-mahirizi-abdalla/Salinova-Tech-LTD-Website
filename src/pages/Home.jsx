@@ -5,7 +5,7 @@ import { Card } from '../components/Card';
 import { Link } from 'react-router-dom';
 import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaMicroscope } from 'react-icons/fa';
 import { InteractiveGlobe } from '../components/InteractiveGlobe';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 
 // --- Helper Components ---
 
@@ -86,22 +86,7 @@ const StatCard = ({ number, suffix, label }) => {
 export const Home = () => {
   const typingWords = ["Software Development", "Cybersecurity", "AI Solutions", "Tech Training"];
 
-  useSEO({
-    title: 'Salinova Tech LTD — Software Development & Cybersecurity | Kenya',
-    description:
-      'Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.',
-    path: '/',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Salinova Tech LTD',
-      url: 'https://salinovatech.com',
-      logo: 'https://salinovatech.com/assets/logo.png',
-      description: 'Custom software development and cybersecurity consulting for businesses in Kenya and East Africa.',
-      address: { '@type': 'PostalAddress', addressLocality: 'Kilifi', addressCountry: 'KE' },
-      contactPoint: { '@type': 'ContactPoint', email: 'info@salinovatech.com', contactType: 'customer service' },
-    },
-  });
+  
 
   const services = [
     {
@@ -156,6 +141,22 @@ export const Home = () => {
 
   return (
     <div>
+      <SEO {...{
+    title: 'Salinova Tech LTD — Software Development & Cybersecurity | Kenya',
+    description:
+      'Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.',
+    path: '/',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Salinova Tech LTD',
+      url: 'https://salinovatech.com',
+      logo: 'https://salinovatech.com/assets/logo.png',
+      description: 'Custom software development and cybersecurity consulting for businesses in Kenya and East Africa.',
+      address: { '@type': 'PostalAddress', addressLocality: 'Kilifi', addressCountry: 'KE' },
+      contactPoint: { '@type': 'ContactPoint', email: 'info@salinovatech.com', contactType: 'customer service' },
+    },
+  }} />
       {/* Unified Single Hero Section */}
       <section className="min-h-[92vh] flex items-center relative overflow-hidden pt-28 pb-16">
         {/* Full-Screen 3D Globe Motion Background */}

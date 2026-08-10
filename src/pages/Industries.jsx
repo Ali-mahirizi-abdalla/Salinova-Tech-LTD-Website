@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaUniversity, FaLandmark, FaHospital, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 
 const industries = [
@@ -145,7 +145,11 @@ const IndustrySection = ({ industry, reverse, index }) => (
 );
 
 export const Industries = () => {
-  useSEO({
+  
+
+  return (
+    <div>
+      <SEO {...{
     title: 'Industry Solutions — Education, Banking & Healthcare | Salinova Tech LTD',
     description:
       'Salinova Tech LTD delivers custom software and cybersecurity solutions for education, banking, and healthcare organisations across Kenya and East Africa.',
@@ -163,10 +167,7 @@ export const Industries = () => {
         ],
       },
     },
-  });
-
-  return (
-    <div>
+  }} />
       {/* Hero */}
       <section className="py-24 text-center relative overflow-hidden border-b border-teal/10">
         <div className="absolute inset-0 pointer-events-none">

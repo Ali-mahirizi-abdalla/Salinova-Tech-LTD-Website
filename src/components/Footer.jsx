@@ -100,8 +100,7 @@ export const Footer = () => {
       <div className="container mx-auto px-6 lg:px-12 border-t border-teal/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-text-muted text-sm">
         <p>© 2026 Salinova Tech LTD. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="/sitemap.xml" className="hover:text-teal transition-colors">Sitemap</a>
-          <a href="/robots.txt" className="hover:text-teal transition-colors">Robots.txt</a>
+
           <Link to="/contact" className="hover:text-teal transition-colors">Privacy Policy</Link>
         </div>
       </div>

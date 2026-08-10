@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaPython, FaShieldAlt, FaGraduationCap, FaClock, FaUser, FaTag, FaArrowRight } from 'react-icons/fa';
 
 const posts = [
@@ -105,7 +105,11 @@ const PostCard = ({ post, index }) => (
 );
 
 export const Blog = () => {
-  useSEO({
+  
+
+  return (
+    <div>
+      <SEO {...{
     title: 'Blog & Resources — Salinova Tech LTD',
     description:
       'Expert articles on Python development, cybersecurity, tech careers, and digital transformation for businesses in Kenya and East Africa.',
@@ -122,10 +126,7 @@ export const Blog = () => {
         url: 'https://salinovatech.com',
       },
     },
-  });
-
-  return (
-    <div>
+  }} />
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[120px] pointer-events-none" />

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaClock, FaUser, FaArrowLeft, FaWhatsapp } from 'react-icons/fa';
 
 const posts = {
@@ -211,15 +211,16 @@ export const BlogPost = () => {
   const { slug } = useParams();
   const post = posts[slug];
 
-  useSEO({
-    title: post ? `${post.title} — Salinova Tech LTD` : 'Article Not Found',
-    description: post?.description || '',
-    path: `/blog/${slug}`,
-  });
+  
 
   if (!post) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <SEO {...{
+    title: post ? `${post.title} — Salinova Tech LTD` : 'Article Not Found',
+    description: post?.description || '',
+    path: `/blog/${slug}`,
+  }} />
         <h1 className="text-4xl font-bold text-text mb-4">Article Not Found</h1>
         <p className="text-text-muted mb-8">This article doesn't exist or may have been moved.</p>
         <Button to="/blog" variant="primary">← Back to Blog</Button>

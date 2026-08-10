@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaCheckCircle } from 'react-icons/fa';
 
 const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, reverse, imgSrc }) => {
@@ -57,7 +57,11 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
 };
 
 export const Services = () => {
-  useSEO({
+  
+
+  return (
+    <div>
+      <SEO {...{
     title: 'Services — Custom Software, Cybersecurity & AI | Salinova Tech LTD',
     description:
       'Salinova Tech LTD offers web & mobile app development, penetration testing, cybersecurity audits, AI automation, and cloud services in Kenya and East Africa.',
@@ -72,10 +76,7 @@ export const Services = () => {
       },
       areaServed: 'East Africa',
     },
-  });
-
-  return (
-    <div>
+  }} />
       {/* Hero */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-navy z-0">

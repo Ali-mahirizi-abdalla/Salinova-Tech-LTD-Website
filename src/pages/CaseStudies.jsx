@@ -1,16 +1,11 @@
 import React from 'react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import { useSEO } from '../hooks/useSEO';
+import { SEO } from '../components/SEO';
 import { FaQuoteLeft } from 'react-icons/fa';
 
 export const CaseStudies = () => {
-  useSEO({
-    title: 'Case Studies — Success Stories & Results | Salinova Tech LTD',
-    description:
-      'Explore how Salinova Tech LTD delivered real software and cybersecurity results for universities, regional banks, and government institutions in Kenya.',
-    path: '/case-studies',
-  });
+  
 
   const cases = [
     {
@@ -47,6 +42,12 @@ export const CaseStudies = () => {
 
   return (
     <div className="py-20">
+      <SEO {...{
+    title: 'Case Studies — Success Stories & Results | Salinova Tech LTD',
+    description:
+      'Explore how Salinova Tech LTD delivered real software and cybersecurity results for universities, regional banks, and government institutions in Kenya.',
+    path: '/case-studies',
+  }} />
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-text mb-4">Case Studies</h1>
