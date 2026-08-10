@@ -174,8 +174,8 @@ export const Home = () => {
               transition={{ duration: 0.8 }}
               className="lg:col-span-7 text-left"
             >
-              {/* Single Glassmorphism Container */}
-              <div className="relative p-7 sm:p-10 rounded-3xl bg-[#0A192F]/75 backdrop-blur-md border border-teal/20 shadow-[0_0_50px_rgba(0,0,0,0.6)]">
+              {/* Single Glassmorphism Container with High Globe Transparency */}
+              <div className="relative p-7 sm:p-10 rounded-3xl bg-[#061224]/60 backdrop-blur-sm border border-teal/25 shadow-[0_0_60px_rgba(0,0,0,0.7)] max-w-[660px]">
                 
                 {/* Cyber Corner Bracket Markers */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-teal" />

@@ -159,49 +159,49 @@ export const InteractiveGlobe = () => {
       lastTime = timestamp;
 
       // Smooth anticlockwise rotation
-      rotRef.current -= dt * 9.0;
+      rotRef.current -= dt * 12.0;
 
       const W = canvas.width;
       const H = canvas.height;
 
       // Position globe on the right half on desktop, and centered below text on mobile
       const isMobile = W < 1024;
-      const cx = isMobile ? W / 2 : W * 0.70;
+      const cx = isMobile ? W / 2 : W * 0.68;
       const cy = isMobile ? H * 0.68 : H * 0.50;
-      const R = Math.min(W, H) * (isMobile ? 0.32 : 0.38);
+      const R = Math.min(W, H) * (isMobile ? 0.35 : 0.42);
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 
       ctx.clearRect(0, 0, W, H);
 
       // 1. Deep Space Star Particles Background
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 50; i++) {
         const sx = (Math.sin(i * 99 + timestamp * 0.0001) * 0.5 + 0.5) * W;
         const sy = (Math.cos(i * 33 + timestamp * 0.0001) * 0.5 + 0.5) * H;
         const sa = (Math.sin(i + timestamp * 0.002) * 0.4 + 0.6);
-        ctx.fillStyle = `rgba(100, 255, 218, ${sa * 0.4})`;
-        ctx.fillRect(sx, sy, 1.5 * dpr, 1.5 * dpr);
+        ctx.fillStyle = `rgba(100, 255, 218, ${sa * 0.6})`;
+        ctx.fillRect(sx, sy, 2.0 * dpr, 2.0 * dpr);
       }
 
-      // 2. Outer atmosphere halo & glow
-      const haloGrad = ctx.createRadialGradient(cx, cy, R * 0.85, cx, cy, R * 1.45);
-      haloGrad.addColorStop(0, 'rgba(0, 229, 255, 0.35)');
-      haloGrad.addColorStop(0.4, 'rgba(0, 150, 255, 0.18)');
-      haloGrad.addColorStop(0.8, 'rgba(0, 80, 200, 0.06)');
+      // 2. Outer atmosphere halo & glow (Super Bright)
+      const haloGrad = ctx.createRadialGradient(cx, cy, R * 0.85, cx, cy, R * 1.50);
+      haloGrad.addColorStop(0, 'rgba(0, 255, 230, 0.55)');
+      haloGrad.addColorStop(0.4, 'rgba(0, 180, 255, 0.30)');
+      haloGrad.addColorStop(0.8, 'rgba(0, 100, 240, 0.10)');
       haloGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.beginPath();
-      ctx.arc(cx, cy, R * 1.45, 0, TWO_PI);
+      ctx.arc(cx, cy, R * 1.50, 0, TWO_PI);
       ctx.fillStyle = haloGrad;
       ctx.fill();
 
-      // 3. Dark Sphere Base with Neon Glow Edge
+      // 3. Dark Sphere Base with High-Contrast Edge
       const sphereGrad = ctx.createRadialGradient(
         cx - R * 0.3, cy - R * 0.3, R * 0.05,
         cx, cy, R
       );
-      sphereGrad.addColorStop(0, 'rgba(5, 30, 65, 0.85)');
-      sphereGrad.addColorStop(0.7, 'rgba(2, 16, 40, 0.95)');
-      sphereGrad.addColorStop(1, 'rgba(1, 8, 22, 0.98)');
+      sphereGrad.addColorStop(0, 'rgba(8, 40, 85, 0.90)');
+      sphereGrad.addColorStop(0.7, 'rgba(3, 20, 50, 0.96)');
+      sphereGrad.addColorStop(1, 'rgba(1, 10, 28, 0.99)');
 
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, TWO_PI);
@@ -211,9 +211,9 @@ export const InteractiveGlobe = () => {
       // Sharp atmospheric rim stroke
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, TWO_PI);
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.85)';
-      ctx.lineWidth = 2.5 * dpr;
-      ctx.shadowBlur = 15 * dpr;
+      ctx.strokeStyle = '#00F0FF';
+      ctx.lineWidth = 3.0 * dpr;
+      ctx.shadowBlur = 20 * dpr;
       ctx.shadowColor = '#00F0FF';
       ctx.stroke();
       ctx.shadowBlur = 0; // reset
@@ -224,26 +224,29 @@ export const InteractiveGlobe = () => {
       ctx.rotate(0.35); // tilt angle
       ctx.beginPath();
       ctx.ellipse(0, 0, R * 1.25, R * 0.35, 0, 0, TWO_PI);
-      ctx.strokeStyle = 'rgba(0, 255, 220, 0.4)';
-      ctx.lineWidth = 1.2 * dpr;
+      ctx.strokeStyle = 'rgba(0, 255, 220, 0.6)';
+      ctx.lineWidth = 1.6 * dpr;
+      ctx.shadowBlur = 10 * dpr;
+      ctx.shadowColor = '#00FFDC';
       ctx.stroke();
+      ctx.shadowBlur = 0;
 
       // Orbital Particle Satellite
-      const ringAngle = (timestamp * 0.001) % TWO_PI;
+      const ringAngle = (timestamp * 0.0012) % TWO_PI;
       const pxRing = Math.cos(ringAngle) * (R * 1.25);
       const pyRing = Math.sin(ringAngle) * (R * 0.35);
       ctx.beginPath();
-      ctx.arc(pxRing, pyRing, 4 * dpr, 0, TWO_PI);
+      ctx.arc(pxRing, pyRing, 5 * dpr, 0, TWO_PI);
       ctx.fillStyle = '#F96900';
-      ctx.shadowBlur = 12 * dpr;
+      ctx.shadowBlur = 15 * dpr;
       ctx.shadowColor = '#F96900';
       ctx.fill();
       ctx.shadowBlur = 0;
       ctx.restore();
 
       // 5. 3D Grid lines (Latitude / Longitude)
-      ctx.lineWidth = 0.6 * dpr;
-      ctx.strokeStyle = 'rgba(0, 180, 255, 0.15)';
+      ctx.lineWidth = 0.8 * dpr;
+      ctx.strokeStyle = 'rgba(0, 220, 255, 0.25)';
       for (let lat = -60; lat <= 60; lat += 20) {
         const phi = (90 - lat) * (Math.PI / 180);
         const yCenter = cy - Math.cos(phi) * R;
@@ -253,7 +256,7 @@ export const InteractiveGlobe = () => {
         ctx.stroke();
       }
 
-      // 6. Realistic Country Boundaries & Shaded Landmasses
+      // 6. Realistic Country Boundaries & Shaded Landmasses (High Contrast)
       COUNTRY_BOUNDARIES.forEach(path => {
         let first = true;
         let visibleCount = 0;
@@ -276,13 +279,13 @@ export const InteractiveGlobe = () => {
         });
 
         if (visibleCount > 2) {
-          ctx.strokeStyle = '#64FFDA';
-          ctx.lineWidth = 1.8 * dpr;
-          ctx.shadowBlur = 8 * dpr;
-          ctx.shadowColor = '#64FFDA';
+          ctx.strokeStyle = '#00FFFF';
+          ctx.lineWidth = 2.4 * dpr;
+          ctx.shadowBlur = 12 * dpr;
+          ctx.shadowColor = '#00FFFF';
           ctx.stroke();
 
-          ctx.fillStyle = 'rgba(0, 225, 255, 0.12)';
+          ctx.fillStyle = 'rgba(0, 240, 255, 0.25)';
           ctx.fill();
           ctx.shadowBlur = 0;
         }
