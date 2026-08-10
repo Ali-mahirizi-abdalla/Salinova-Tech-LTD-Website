@@ -164,48 +164,35 @@ export const Home = () => {
         </div>
         
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.h1 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white"
+            className="max-w-4xl mx-auto bg-navy/65 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-teal/20 shadow-[0_20px_60px_rgba(0,0,0,0.9)]"
           >
-            <span className="text-teal">Building Skills.</span><br className="md:hidden" /> Creating Solutions.
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-lg text-text-muted max-w-3xl mx-auto mb-4 leading-relaxed"
-          >
-            Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.
-          </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl mb-10 h-8"
-          >
-            Expertise in <TypingEffect words={typingWords} />
-          </motion.div>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+              <span className="text-teal drop-shadow-[0_0_20px_rgba(100,255,218,0.4)]">Building Skills.</span><br className="md:hidden" /> Creating Solutions.
+            </h1>
+            
+            <p className="text-base md:text-xl text-text-muted max-w-3xl mx-auto mb-6 leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.
+            </p>
+            
+            <div className="text-lg md:text-2xl mb-8 h-8 font-medium">
+              Expertise in <TypingEffect words={typingWords} />
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button to="/contact" variant="primary" className="w-full sm:w-auto">
-              Book a Free Consultation →
-            </Button>
-            <Button to="/services" variant="secondary" className="w-full sm:w-auto">
-              Explore Services →
-            </Button>
-            <Button to="/academy" variant="ghost" className="w-full sm:w-auto">
-              Join the Academy →
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button to="/contact" variant="primary" className="w-full sm:w-auto text-base py-3.5 px-7">
+                Book a Free Consultation →
+              </Button>
+              <Button to="/services" variant="secondary" className="w-full sm:w-auto text-base py-3.5 px-7">
+                Explore Services →
+              </Button>
+              <Button to="/academy" variant="ghost" className="w-full sm:w-auto text-base py-3.5 px-7">
+                Join the Academy →
+              </Button>
+            </div>
           </motion.div>
         </div>
         

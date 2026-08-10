@@ -4,72 +4,100 @@ const TWO_PI = Math.PI * 2;
 
 /**
  * Realistic & Futuristic 3D World Globe
- * High-density dot-matrix continents, atmospheric glow, glowing network arcs,
- * tech icon nodes, and floating telemetry matching the reference image.
+ * Realistic country boundaries, dot-matrix landmasses, 3D network arcs,
+ * atmospheric horizon glow, and floating telemetry HUD.
  */
 
-// Accurate polygonal landmass test for realistic continent outlines
-function isLand(lat, lng) {
-  // Africa
-  if (lat >= -35 && lat <= 37 && lng >= -18 && lng <= 52) {
-    if (lat > 20 && lng > 35) return true; // Egypt / Red Sea
-    if (lat > 10 && lat <= 37 && lng >= -17 && lng <= 50) return true; // N. Africa
-    if (lat > -5 && lat <= 10 && lng >= -15 && lng <= 45) return true; // Central
-    if (lat > -35 && lat <= -5 && lng >= 10 && lng <= 40) return true; // S. Africa
-    if (lat >= -26 && lat <= -12 && lng >= 43 && lng <= 50) return true; // Madagascar
-  }
-  // Europe
-  if (lat >= 36 && lat <= 71 && lng >= -10 && lng <= 45) {
-    if (lat > 50 && lng < 0 && lng > -10) return true; // UK / Ireland
-    if (lat > 54 && lng > 4 && lng < 30) return true; // Scandinavia / Baltic
-    if (lat >= 36 && lat <= 54 && lng >= -9 && lng <= 40) return true; // S & C Europe
-  }
-  // Middle East & Asia
-  if (lat >= -10 && lat <= 75 && lng >= 35 && lng <= 145) {
-    if (lat >= 12 && lat <= 32 && lng >= 35 && lng <= 60) return true; // Arabia
-    if (lat >= 8 && lat <= 35 && lng >= 68 && lng <= 90) return true; // India
-    if (lat >= 10 && lat <= 55 && lng >= 95 && lng <= 145) return true; // E Asia / China
-    if (lat >= 30 && lat <= 45 && lng >= 129 && lng <= 145) return true; // Japan
-    if (lat >= -10 && lat <= 10 && lng >= 95 && lng <= 140) return true; // SE Asia islands
-  }
+// Realistic Polygonal Country & Continent Outlines (Lat/Lng coordinate paths)
+const COUNTRY_BOUNDARIES = [
+  // Kenya & East Africa Detailed Border
+  [
+    [4.5, 34.0], [4.5, 41.5], [1.8, 41.8], [-1.7, 41.0], [-4.7, 39.2],
+    [-4.7, 38.0], [-3.0, 37.6], [-1.0, 34.0], [0.5, 34.0], [4.5, 34.0]
+  ],
+  // Africa Outline
+  [
+    [37, -10], [37, 10], [32, 32], [30, 34], [12, 44], [11, 51],
+    [2, 45], [-11, 40], [-26, 33], [-34, 26], [-34, 18], [-22, 14],
+    [-5, 12], [4, 9], [5, -8], [15, -17], [28, -13], [35, -6], [37, -10]
+  ],
+  // Madagascar
+  [[-12, 49], [-16, 50], [-25, 47], [-25, 44], [-16, 44], [-12, 49]],
+
+  // Europe & UK
+  [
+    [36, -9], [43, -9], [44, -1], [48, -5], [51, 1], [54, 8],
+    [55, 12], [60, 11], [70, 20], [71, 28], [60, 30], [55, 21],
+    [45, 14], [38, 24], [36, 28], [37, 15], [38, 13], [44, 8], [36, -9]
+  ],
+  [
+    [50, -5], [58, -6], [58, -2], [54, 1], [50, -5] // UK
+  ],
+
+  // Arabian Peninsula
+  [[30, 33], [30, 48], [24, 56], [16, 53], [12, 44], [30, 33]],
+
+  // Indian Subcontinent
+  [[24, 68], [32, 75], [28, 88], [22, 89], [15, 80], [8, 77], [13, 74], [24, 68]],
+
+  // East Asia & Japan
+  [
+    [42, 130], [38, 118], [22, 114], [21, 108], [10, 104], [1, 104],
+    [15, 108], [25, 120], [35, 120], [45, 135], [55, 135], [42, 130]
+  ],
+  [
+    [31, 130], [35, 135], [43, 145], [40, 140], [33, 132], [31, 130] // Japan
+  ],
+
   // North America
-  if (lat >= 7 && lat <= 72 && lng >= -168 && lng <= -52) {
-    if (lat >= 15 && lat <= 72 && lng >= -130 && lng <= -60) return true; // US / Canada
-    if (lat >= 7 && lat <= 30 && lng >= -115 && lng <= -75) return true; // Mexico / CA
-    if (lat >= 60 && lng >= -55 && lng <= -20) return true; // Greenland
-  }
+  [
+    [70, -165], [70, -70], [60, -60], [45, -64], [30, -80], [25, -80],
+    [25, -97], [15, -92], [15, -88], [8, -78], [15, -95], [20, -105],
+    [30, -115], [48, -124], [60, -140], [65, -168], [70, -165]
+  ],
+
   // South America
-  if (lat >= -56 && lat <= 13 && lng >= -82 && lng <= -34) {
-    if (lat >= -55 && lat <= 12 && lng >= -80 && lng <= -35) return true;
-  }
-  // Australia / NZ
-  if (lat >= -44 && lat <= -10 && lng >= 112 && lng <= 178) {
-    if (lat >= -40 && lat <= -10 && lng >= 113 && lng <= 154) return true; // Aus
-    if (lat >= -47 && lat <= -34 && lng >= 165 && lng <= 178) return true; // NZ
-  }
+  [
+    [12, -73], [10, -60], [-5, -35], [-22, -41], [-35, -57], [-54, -68],
+    [-50, -75], [-18, -70], [-5, -81], [5, -77], [12, -73]
+  ],
+
+  // Australia & New Zealand
+  [
+    [-12, 130], [-12, 142], [-25, 153], [-38, 148], [-35, 117], [-22, 114], [-12, 130]
+  ],
+  [
+    [-35, 173], [-46, 167], [-46, 170], [-35, 178], [-35, 173] // NZ
+  ],
+];
+
+// Dense point matrix test for detailed continent shading
+function isLand(lat, lng) {
+  if (lat >= -35 && lat <= 37 && lng >= -18 && lng <= 52) return true; // Africa
+  if (lat >= 36 && lat <= 71 && lng >= -10 && lng <= 45) return true; // Europe
+  if (lat >= -10 && lat <= 75 && lng >= 35 && lng <= 145) return true; // Asia
+  if (lat >= 7 && lat <= 72 && lng >= -168 && lng <= -52) return true; // North America
+  if (lat >= -56 && lat <= 13 && lng >= -82 && lng <= -34) return true; // South America
+  if (lat >= -44 && lat <= -10 && lng >= 112 && lng <= 178) return true; // Australia
   return false;
 }
 
-// Generate realistic dense dot-matrix points
-const DENSE_CONTINENT_DOTS = (() => {
+const DENSE_DOTS = (() => {
   const points = [];
-  const step = 1.6; // High resolution sampling
+  const step = 1.8;
   for (let lat = -70; lat <= 75; lat += step) {
     for (let lng = -180; lng <= 180; lng += step) {
       if (isLand(lat, lng)) {
-        // Add tiny pseudo-random jitter for organic technology point cloud effect
-        const jitterLat = lat + (Math.sin(lat * 12.3 + lng * 4.5) * 0.2);
-        const jitterLng = lng + (Math.cos(lat * 8.1 + lng * 11.2) * 0.2);
-        points.push([jitterLat, jitterLng]);
+        points.push([lat, lng]);
       }
     }
   }
   return points;
 })();
 
-// Major Global Tech Hub Nodes (Lat, Lng, Name)
+// Global Hub Nodes
 const GLOBAL_NODES = [
-  { lat: -1.286, lng: 36.817, name: 'Nairobi', hub: true },   // Salinova HQ
+  { lat: -1.286, lng: 36.817, name: 'Nairobi (HQ)', hub: true },
   { lat: 51.507, lng: -0.127, name: 'London', hub: false },
   { lat: 40.712, lng: -74.006, name: 'New York', hub: false },
   { lat: 35.676, lng: 139.650, name: 'Tokyo', hub: false },
@@ -79,30 +107,21 @@ const GLOBAL_NODES = [
   { lat: 19.076, lng: 72.877,  name: 'Mumbai', hub: false },
   { lat: -33.924,lng: 18.424,  name: 'Cape Town', hub: false },
   { lat: 37.774, lng: -122.419,name: 'San Francisco', hub: false },
-  { lat: -23.550,lng: -46.633, name: 'Sao Paulo', hub: false },
-  { lat: -33.868,lng: 151.209, name: 'Sydney', hub: false },
 ];
 
-// Network connections (arcs) between global nodes
 const NETWORK_ARCS = [
-  [0, 1], [0, 4], [0, 8], [0, 7], // Nairobi -> London, Dubai, Cape Town, Mumbai
-  [1, 2], [1, 6], [1, 4],          // London -> NY, Paris, Dubai
-  [2, 9], [2, 10],                 // NY -> SF, Sao Paulo
-  [4, 5], [4, 7],                  // Dubai -> Singapore, Mumbai
-  [5, 3], [5, 11],                 // Singapore -> Tokyo, Sydney
-  [9, 3],                          // SF -> Tokyo
+  [0, 1], [0, 4], [0, 8], [0, 7],
+  [1, 2], [1, 6], [1, 4],
+  [2, 9], [4, 5], [5, 3],
 ];
 
-// Telemetry & Code Cards overlay data
 const TELEMETRY_LABELS = [
-  { x: -0.72, y: -0.62, text: '653.654', val: 'SYS_OK' },
-  { x:  0.68, y: -0.58, text: '483.215', val: 'SEC_ACTIVE' },
-  { x:  0.62, y:  0.18, text: '457.266', val: 'ENC_TLS1.3' },
-  { x:  0.58, y:  0.52, text: '451.246', val: 'LAT_12ms' },
-  { x: -0.58, y:  0.58, text: '62.128',  val: 'NODE_KE' },
-  { x:  0.12, y:  0.74, text: '238.510', val: 'OPS_99.9%' },
-  { x: -0.68, y:  0.12, text: '93.31',   val: 'API_200' },
-  { x: -0.52, y: -0.12, text: '823.11',  val: 'DB_SYNC' },
+  { x: -0.75, y: -0.65, text: '653.654', val: 'SYS_OK' },
+  { x:  0.72, y: -0.60, text: '483.215', val: 'SEC_ACTIVE' },
+  { x:  0.65, y:  0.22, text: '457.266', val: 'ENC_TLS1.3' },
+  { x:  0.60, y:  0.55, text: '451.246', val: 'LAT_12ms' },
+  { x: -0.62, y:  0.62, text: '62.128',  val: 'NODE_KE' },
+  { x:  0.15, y:  0.76, text: '238.510', val: 'OPS_99.9%' },
 ];
 
 function latLngToXYZ(lat, lng, rotY) {
@@ -118,7 +137,7 @@ function latLngToXYZ(lat, lng, rotY) {
 export const InteractiveGlobe = () => {
   const canvasRef = useRef(null);
   const animRef = useRef(null);
-  const rotRef = useRef(150); // Start showing Africa & Europe centered
+  const rotRef = useRef(150);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -139,54 +158,40 @@ export const InteractiveGlobe = () => {
       const dt = (timestamp - lastTime) / 1000;
       lastTime = timestamp;
 
-      // Smooth anticlockwise rotation (rotates leftwards)
-      rotRef.current -= dt * 7.5; // 7.5 deg / sec
+      // Smooth anticlockwise rotation
+      rotRef.current -= dt * 7.0;
 
       const W = canvas.width;
       const H = canvas.height;
-      const cx = W / 2;
-      const cy = H / 2;
-      const R = Math.min(W, H) * 0.37;
+
+      // Offset globe center slightly down-right on larger screens so hero text has max contrast
+      const isMobile = W < 768;
+      const cx = isMobile ? W / 2 : W * 0.52;
+      const cy = isMobile ? H / 2 : H * 0.50;
+      const R = Math.min(W, H) * (isMobile ? 0.36 : 0.38);
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 
       ctx.clearRect(0, 0, W, H);
 
-      // 1. --- Deep space radial background glow ---
-      const bgGlow = ctx.createRadialGradient(cx, cy, R * 0.3, cx, cy, R * 1.8);
-      bgGlow.addColorStop(0, 'rgba(0, 80, 180, 0.12)');
-      bgGlow.addColorStop(0.5, 'rgba(0, 40, 100, 0.05)');
-      bgGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = bgGlow;
-      ctx.fillRect(0, 0, W, H);
-
-      // 2. --- Outer Cyber Ring & Atmosphere Rim ---
-      // Outer subtle ring
-      ctx.beginPath();
-      ctx.arc(cx, cy, R * 1.12, 0, TWO_PI);
-      ctx.strokeStyle = 'rgba(0, 180, 255, 0.15)';
-      ctx.lineWidth = 1 * dpr;
-      ctx.stroke();
-
-      // Pulsing outer atmosphere halo
-      const pulse = Math.sin(timestamp / 800) * 0.03;
-      const haloGrad = ctx.createRadialGradient(cx, cy, R * 0.95, cx, cy, R * (1.18 + pulse));
-      haloGrad.addColorStop(0, 'rgba(0, 200, 255, 0.35)');
-      haloGrad.addColorStop(0.4, 'rgba(0, 140, 255, 0.15)');
+      // 1. Outer atmosphere halo & glow
+      const haloGrad = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.35);
+      haloGrad.addColorStop(0, 'rgba(0, 180, 255, 0.28)');
+      haloGrad.addColorStop(0.5, 'rgba(0, 100, 220, 0.12)');
       haloGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.beginPath();
-      ctx.arc(cx, cy, R * (1.18 + pulse), 0, TWO_PI);
+      ctx.arc(cx, cy, R * 1.35, 0, TWO_PI);
       ctx.fillStyle = haloGrad;
       ctx.fill();
 
-      // 3. --- Inner Globe Dark Sphere Base ---
+      // 2. Dark Sphere Base
       const sphereGrad = ctx.createRadialGradient(
         cx - R * 0.3, cy - R * 0.3, R * 0.1,
         cx, cy, R
       );
-      sphereGrad.addColorStop(0, 'rgba(0, 35, 75, 0.85)');
-      sphereGrad.addColorStop(0.6, 'rgba(2, 18, 42, 0.92)');
-      sphereGrad.addColorStop(1, 'rgba(1, 8, 22, 0.98)');
+      sphereGrad.addColorStop(0, 'rgba(3, 25, 55, 0.75)');
+      sphereGrad.addColorStop(0.7, 'rgba(2, 14, 34, 0.88)');
+      sphereGrad.addColorStop(1, 'rgba(1, 6, 18, 0.95)');
 
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, TWO_PI);
@@ -196,63 +201,61 @@ export const InteractiveGlobe = () => {
       // Sharp atmospheric rim stroke
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, TWO_PI);
-      ctx.strokeStyle = 'rgba(0, 220, 255, 0.65)';
-      ctx.lineWidth = 2.2 * dpr;
+      ctx.strokeStyle = 'rgba(0, 220, 255, 0.7)';
+      ctx.lineWidth = 2 * dpr;
       ctx.stroke();
 
-      // 4. --- 3D Latitude and Longitude Grid Lines ---
-      ctx.lineWidth = 0.6 * dpr;
-      ctx.strokeStyle = 'rgba(0, 160, 255, 0.12)';
-
-      // Latitude lines
+      // 3. 3D Grid lines
+      ctx.lineWidth = 0.5 * dpr;
+      ctx.strokeStyle = 'rgba(0, 160, 255, 0.1)';
       for (let lat = -60; lat <= 60; lat += 20) {
         const phi = (90 - lat) * (Math.PI / 180);
         const yCenter = cy - Math.cos(phi) * R;
-        const radiusRing = Math.sin(phi) * R;
+        const rRing = Math.sin(phi) * R;
         ctx.beginPath();
-        ctx.ellipse(cx, yCenter, radiusRing, radiusRing * 0.18, 0, 0, TWO_PI);
+        ctx.ellipse(cx, yCenter, rRing, rRing * 0.18, 0, 0, TWO_PI);
         ctx.stroke();
       }
 
-      // Longitude meridians
-      for (let l = 0; l < 12; l++) {
-        const angle = ((l * 30 + rot) * Math.PI) / 180;
-        const xOffset = Math.sin(angle) * R;
-        const visible = Math.cos(angle) > 0;
-        if (visible) {
-          ctx.beginPath();
-          ctx.ellipse(cx, cy, Math.abs(xOffset), R, 0, 0, TWO_PI);
-          ctx.strokeStyle = 'rgba(0, 180, 255, 0.08)';
-          ctx.stroke();
-        }
-      }
-
-      // 5. --- High-Density Dot-Matrix Continent Points ---
-      DENSE_CONTINENT_DOTS.forEach(([lat, lng]) => {
+      // 4. Dense Dot-Matrix Land Shading
+      DENSE_DOTS.forEach(([lat, lng]) => {
         const p = latLngToXYZ(lat, lng, rot);
-        if (p.z <= 0) return; // Hide backfacing points
-
+        if (p.z <= 0) return;
         const sx = cx + p.x * R;
         const sy = cy - p.y * R;
-
-        // Depth lighting & perspective weighting
-        const depth = p.z; // 0 (edge) to 1 (front center)
-        const dotSize = (0.9 + depth * 1.3) * dpr;
-        const alpha = Math.max(0.15, depth * 0.95);
-
-        // Highlight Kenya/East Africa region in signature bright teal/orange
-        const isEastAfrica = lat >= -5 && lat <= 12 && lng >= 32 && lng <= 44;
-        const color = isEastAfrica
-          ? `rgba(249, 105, 0, ${alpha})` // Orange highlight for Kenya/East Africa
-          : `rgba(100, 255, 218, ${alpha})`; // Bright cyan for world continents
+        const alpha = Math.max(0.1, p.z * 0.75);
 
         ctx.beginPath();
-        ctx.arc(sx, sy, dotSize, 0, TWO_PI);
-        ctx.fillStyle = color;
+        ctx.arc(sx, sy, 0.9 * dpr, 0, TWO_PI);
+        ctx.fillStyle = `rgba(100, 255, 218, ${alpha})`;
         ctx.fill();
       });
 
-      // 6. --- Global Node Positioning & Network Arcs ---
+      // 5. Realistic Country Boundaries Drawn in 3D
+      ctx.lineWidth = 1.2 * dpr;
+      COUNTRY_BOUNDARIES.forEach(path => {
+        let first = true;
+        ctx.beginPath();
+        path.forEach(([lat, lng]) => {
+          const p = latLngToXYZ(lat, lng, rot);
+          if (p.z > 0) {
+            const sx = cx + p.x * R;
+            const sy = cy - p.y * R;
+            if (first) {
+              ctx.moveTo(sx, sy);
+              first = false;
+            } else {
+              ctx.lineTo(sx, sy);
+            }
+          } else {
+            first = true;
+          }
+        });
+        ctx.strokeStyle = 'rgba(0, 255, 220, 0.65)';
+        ctx.stroke();
+      });
+
+      // 6. Global Hub Nodes & 3D Arcs
       const nodePos = GLOBAL_NODES.map(node => {
         const p = latLngToXYZ(node.lat, node.lng, rot);
         return {
@@ -264,22 +267,18 @@ export const InteractiveGlobe = () => {
         };
       });
 
-      // Draw curved 3D network arcs between nodes
       NETWORK_ARCS.forEach(([idxA, idxB]) => {
         const nA = nodePos[idxA];
         const nB = nodePos[idxB];
-
         if (!nA.visible || !nB.visible) return;
 
-        // Arc mid control point lifted away from sphere surface for 3D curvature
         const midX = (nA.sx + nB.sx) / 2;
         const midY = (nA.sy + nB.sy) / 2;
         const dist = Math.hypot(nA.sx - nB.sx, nA.sy - nB.sy);
         const lift = dist * 0.25;
 
-        // Vector pointing outward from sphere center
-        const dirX = (midX - cx);
-        const dirY = (midY - cy);
+        const dirX = midX - cx;
+        const dirY = midY - cy;
         const len = Math.hypot(dirX, dirY) || 1;
         const ctrlX = midX + (dirX / len) * lift;
         const ctrlY = midY + (dirY / len) * lift;
@@ -287,82 +286,60 @@ export const InteractiveGlobe = () => {
         ctx.beginPath();
         ctx.moveTo(nA.sx, nA.sy);
         ctx.quadraticCurveTo(ctrlX, ctrlY, nB.sx, nB.sy);
-
-        const isNairobiArc = idxA === 0 || idxB === 0;
-        ctx.strokeStyle = isNairobiArc
-          ? 'rgba(249, 105, 0, 0.75)' // Orange connection to Nairobi HQ
-          : 'rgba(0, 220, 255, 0.45)'; // Cyan arc for global connections
-        ctx.lineWidth = (isNairobiArc ? 1.6 : 1.0) * dpr;
+        ctx.strokeStyle = idxA === 0 || idxB === 0 ? 'rgba(249, 105, 0, 0.85)' : 'rgba(0, 220, 255, 0.5)';
+        ctx.lineWidth = (idxA === 0 || idxB === 0 ? 1.8 : 1.1) * dpr;
         ctx.stroke();
 
-        // Traveling pulse packet along arcs
-        const progress = (timestamp / 2000 + idxA * 0.3) % 1;
+        // Moving pulse packet
+        const progress = (timestamp / 1800 + idxA * 0.3) % 1;
         const px = (1 - progress) * (1 - progress) * nA.sx + 2 * (1 - progress) * progress * ctrlX + progress * progress * nB.sx;
         const py = (1 - progress) * (1 - progress) * nA.sy + 2 * (1 - progress) * progress * ctrlY + progress * progress * nB.sy;
 
         ctx.beginPath();
         ctx.arc(px, py, 2.5 * dpr, 0, TWO_PI);
-        ctx.fillStyle = isNairobiArc ? '#F96900' : '#64FFDA';
+        ctx.fillStyle = idxA === 0 || idxB === 0 ? '#F96900' : '#64FFDA';
         ctx.fill();
       });
 
-      // Draw Global Node Glowing Icons & Labels
+      // Nodes
       nodePos.forEach(n => {
         if (!n.visible) return;
+        const size = n.hub ? 12 : 8;
 
-        const size = n.hub ? 14 : 9;
-
-        // Outer pulse ring for Nairobi HQ
         if (n.hub) {
           const pulseR = (size + Math.sin(timestamp / 200) * 4) * dpr;
           ctx.beginPath();
           ctx.arc(n.sx, n.sy, pulseR, 0, TWO_PI);
-          ctx.strokeStyle = 'rgba(249, 105, 0, 0.8)';
+          ctx.strokeStyle = 'rgba(249, 105, 0, 0.9)';
           ctx.lineWidth = 1.5 * dpr;
           ctx.stroke();
         }
 
-        // Radial glow background
         const g = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, size * 1.5 * dpr);
-        g.addColorStop(0, n.hub ? 'rgba(249, 105, 0, 0.9)' : 'rgba(0, 220, 255, 0.8)');
+        g.addColorStop(0, n.hub ? 'rgba(249, 105, 0, 0.9)' : 'rgba(0, 220, 255, 0.85)');
         g.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.beginPath();
         ctx.arc(n.sx, n.sy, size * 1.5 * dpr, 0, TWO_PI);
         ctx.fillStyle = g;
         ctx.fill();
 
-        // Core node dot
         ctx.beginPath();
         ctx.arc(n.sx, n.sy, (n.hub ? 4 : 2.5) * dpr, 0, TWO_PI);
         ctx.fillStyle = '#FFFFFF';
         ctx.fill();
 
-        // Node city name text
         ctx.font = `${(n.hub ? 11 : 9) * dpr}px 'Inter', sans-serif`;
         ctx.fillStyle = n.hub ? '#F96900' : 'rgba(230, 241, 255, 0.85)';
         ctx.fillText(n.name, n.sx + (size + 4) * dpr, n.sy + 3 * dpr);
       });
 
-      // 7. --- Specular Top Glint Light ---
-      const glintGrad = ctx.createRadialGradient(
-        cx - R * 0.35, cy - R * 0.35, 0,
-        cx - R * 0.35, cy - R * 0.35, R * 0.5
-      );
-      glintGrad.addColorStop(0, 'rgba(120, 220, 255, 0.28)');
-      glintGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, TWO_PI);
-      ctx.fillStyle = glintGrad;
-      ctx.fill();
-
-      // 8. --- Futuristic Telemetry Floating Cards & HUD Data ---
+      // 7. Telemetry Labels
       ctx.font = `${10 * dpr}px 'Courier New', monospace`;
       TELEMETRY_LABELS.forEach(({ x, y, text, val }) => {
-        const lx = cx + x * R * 1.48;
-        const ly = cy + y * R * 1.48;
+        const lx = cx + x * R * 1.45;
+        const ly = cy + y * R * 1.45;
 
-        // Floating telemetry box
-        ctx.fillStyle = 'rgba(10, 25, 47, 0.75)';
+        ctx.fillStyle = 'rgba(10, 25, 47, 0.70)';
         ctx.strokeStyle = 'rgba(100, 255, 218, 0.25)';
         ctx.lineWidth = 0.8 * dpr;
         ctx.beginPath();
@@ -370,65 +347,11 @@ export const InteractiveGlobe = () => {
         ctx.fill();
         ctx.stroke();
 
-        // Text
         ctx.fillStyle = '#64FFDA';
         ctx.fillText(text, lx, ly);
         ctx.fillStyle = 'rgba(136, 146, 176, 0.9)';
         ctx.fillText(val, lx + 45 * dpr, ly);
-
-        // Leader line connecting to globe
-        ctx.beginPath();
-        ctx.moveTo(lx - 4 * dpr, ly - 2 * dpr);
-        ctx.lineTo(cx + x * R * 1.02, cy + y * R * 1.02);
-        ctx.strokeStyle = 'rgba(100, 255, 218, 0.2)';
-        ctx.lineWidth = 0.7 * dpr;
-        ctx.stroke();
       });
-
-      // 9. --- Hexagonal Tech Icon Nodes ---
-      const hexNodes = [
-        { x: cx - R * 1.05, y: cy - R * 0.75, symbol: '⚡' },
-        { x: cx - R * 0.92, y: cy + R * 0.78, symbol: '🔒' },
-        { x: cx + R * 0.98, y: cy + R * 0.62, symbol: '📡' },
-        { x: cx + R * 1.08, y: cy - R * 0.70, symbol: '☁️' },
-      ];
-      hexNodes.forEach(({ x, y, symbol }) => {
-        ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          const angle = (Math.PI / 3) * i - Math.PI / 6;
-          const hx = x + 15 * dpr * Math.cos(angle);
-          const hy = y + 15 * dpr * Math.sin(angle);
-          i === 0 ? ctx.moveTo(hx, hy) : ctx.lineTo(hx, hy);
-        }
-        ctx.closePath();
-        ctx.fillStyle = 'rgba(23, 42, 69, 0.85)';
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(100, 255, 218, 0.6)';
-        ctx.lineWidth = 1.2 * dpr;
-        ctx.stroke();
-
-        ctx.font = `${11 * dpr}px sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(symbol, x, y);
-        ctx.textAlign = 'start';
-        ctx.textBaseline = 'alphabetic';
-      });
-
-      // 10. --- Orbiting Equatorial Micro-Sparks ---
-      const t = timestamp / 1000;
-      for (let i = 0; i < 24; i++) {
-        const sparkAngle = (i / 24) * TWO_PI - t * (i % 2 === 0 ? 0.25 : -0.15);
-        const sparkR = R * (1.04 + 0.05 * Math.sin(t * 0.8 + i));
-        const px = cx + sparkR * Math.cos(sparkAngle);
-        const py = cy + sparkR * Math.sin(sparkAngle) * 0.32;
-        const alpha = 0.2 + 0.6 * Math.abs(Math.sin(t * 1.2 + i));
-
-        ctx.beginPath();
-        ctx.arc(px, py, (1.2 + (i % 3) * 0.4) * dpr, 0, TWO_PI);
-        ctx.fillStyle = i % 4 === 0 ? `rgba(249, 105, 0, ${alpha})` : `rgba(100, 255, 218, ${alpha})`;
-        ctx.fill();
-      }
 
       animRef.current = requestAnimationFrame(draw);
     };
@@ -443,27 +366,13 @@ export const InteractiveGlobe = () => {
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* Deep Space Radial Background */}
+      {/* Deep Space Background */}
       <div
         className="absolute inset-0"
         style={{
           background: 'radial-gradient(ellipse at center, #0B192F 0%, #060D1A 60%, #03060C 100%)',
         }}
       />
-
-      {/* Cyber Grid Pattern */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(100, 255, 218, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(100, 255, 218, 0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
-
-      {/* Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
