@@ -156,21 +156,26 @@ export const Home = () => {
 
   return (
     <div>
-      {/* Split Hero Section */}
-      <section className="min-h-[90vh] flex items-center relative overflow-hidden pt-28 pb-16 bg-[#0B192F]">
+      {/* Unified Single Hero Section */}
+      <section className="min-h-[92vh] flex items-center relative overflow-hidden pt-28 pb-16">
+        {/* Full-Screen 3D Globe Motion Background */}
+        <div className="absolute inset-0 z-0">
+          <InteractiveGlobe />
+        </div>
         
         {/* Hero Grid Container */}
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left Column: Clean Futuristic Sci-Fi Panel (6 Cols) */}
+            {/* Left Column: Single Floating Futuristic Glass Panel (7 Cols) */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-6 text-left relative z-10"
+              className="lg:col-span-7 text-left"
             >
-              <div className="relative p-6 sm:p-8 rounded-3xl bg-[#0A192F]/90 backdrop-blur-xl border border-teal/30 shadow-[0_0_50px_rgba(0,255,220,0.15)] hover:border-teal/50 transition-all duration-500 overflow-hidden">
+              {/* Single Glassmorphism Container */}
+              <div className="relative p-7 sm:p-10 rounded-3xl bg-[#0A192F]/75 backdrop-blur-md border border-teal/20 shadow-[0_0_50px_rgba(0,0,0,0.6)]">
                 
                 {/* Cyber Corner Bracket Markers */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-teal" />
@@ -187,7 +192,7 @@ export const Home = () => {
                   <span className="text-text-muted hidden sm:inline">LOC: KILIFI / NAIROBI, KE</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-5 leading-[1.1]">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal via-teal-light to-white drop-shadow-[0_0_25px_rgba(100,255,218,0.4)]">
                     Building Skills.
                   </span>
@@ -195,40 +200,40 @@ export const Home = () => {
                   Creating Solutions.
                 </h1>
                 
-                <p className="text-sm sm:text-base text-text-muted mb-6 leading-relaxed font-normal max-w-xl">
+                <p className="text-base sm:text-lg text-text-muted mb-8 leading-relaxed font-normal max-w-2xl">
                   Salinova Tech LTD delivers custom enterprise software development and cybersecurity consulting in Kenya & East Africa, uniting hands-on technology education with battle-tested security engineering.
                 </p>
                 
-                <div className="text-sm mb-6 font-mono bg-navy-light/70 p-3.5 rounded-xl border border-teal/20 flex flex-wrap items-center gap-2.5">
+                <div className="text-sm sm:text-base mb-8 font-mono bg-navy-light/70 p-3.5 rounded-xl border border-teal/20 flex flex-wrap items-center gap-2.5">
                   <span className="text-teal font-bold">➜</span>
                   <span className="text-white font-medium">Expertise in:</span>
                   <span className="text-teal font-bold"><TypingEffect words={typingWords} /></span>
                 </div>
 
                 {/* Futuristic Live Metrics Bar */}
-                <div className="grid grid-cols-3 gap-3 mb-6 pt-1">
-                  <div className="p-2.5 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-teal font-bold text-base">99.9%</div>
-                    <div className="text-[10px] text-text-muted font-mono">SYSTEM UPTIME</div>
+                <div className="grid grid-cols-3 gap-3 mb-8 pt-1">
+                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
+                    <div className="text-teal font-bold text-base sm:text-lg">99.9%</div>
+                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">SYSTEM UPTIME</div>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-teal font-bold text-base">ZERO</div>
-                    <div className="text-[10px] text-text-muted font-mono">TRUST SEC</div>
+                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
+                    <div className="text-teal font-bold text-base sm:text-lg">ZERO</div>
+                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">TRUST SEC</div>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-navy/80 border border-teal/20 text-center">
-                    <div className="text-orange font-bold text-base">HUB</div>
-                    <div className="text-[10px] text-text-muted font-mono">EAST AFRICA</div>
+                  <div className="p-3 rounded-xl bg-navy/80 border border-teal/20 text-center">
+                    <div className="text-orange font-bold text-base sm:text-lg">HUB</div>
+                    <div className="text-[10px] sm:text-[11px] text-text-muted font-mono">EAST AFRICA</div>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button to="/contact" variant="primary" className="text-sm py-3 px-5">
+                  <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3 px-5">
                     Book Free Consultation →
                   </Button>
-                  <Button to="/services" variant="secondary" className="text-sm py-3 px-5">
+                  <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3 px-5">
                     Explore Services →
                   </Button>
-                  <Button to="/academy" variant="ghost" className="text-sm py-3 px-5">
+                  <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3 px-5">
                     Join Academy →
                   </Button>
                 </div>
@@ -236,25 +241,8 @@ export const Home = () => {
               </div>
             </motion.div>
 
-            {/* Right Column: Dedicated 3D Holographic Globe Motion Viewport (6 Cols) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-6 relative h-[460px] sm:h-[520px] lg:h-[560px] w-full rounded-3xl overflow-hidden border border-teal/30 bg-[#071325]/80 shadow-[0_0_60px_rgba(0,255,220,0.18)]"
-            >
-              {/* Viewport Header */}
-              <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-3 bg-navy-dark/70 backdrop-blur-md border-b border-teal/20 text-xs font-mono">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-teal animate-pulse" />
-                  <span className="text-teal font-bold tracking-wider">3D GLOBAL MOTION DISPLAY</span>
-                </div>
-                <span className="text-text-muted text-[11px]">KE_HUB_CONNECTED</span>
-              </div>
-
-              {/* Centered Interactive Globe Canvas */}
-              <InteractiveGlobe />
-            </motion.div>
+            {/* Right Column: Free space for 3D Globe motion viewing (5 Cols) */}
+            <div className="lg:col-span-5 block h-[360px] sm:h-[420px] lg:h-[500px] pointer-events-none" />
 
           </div>
         </div>
