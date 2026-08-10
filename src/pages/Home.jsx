@@ -226,14 +226,14 @@ export const Home = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                  <Button to="/contact" variant="primary" className="text-base py-3.5 px-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3 px-5">
                     Book Free Consultation →
                   </Button>
-                  <Button to="/services" variant="secondary" className="text-base py-3.5 px-6">
+                  <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3 px-5">
                     Explore Services →
                   </Button>
-                  <Button to="/academy" variant="ghost" className="text-base py-3.5 px-6">
+                  <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3 px-5">
                     Join Academy →
                   </Button>
                 </div>
