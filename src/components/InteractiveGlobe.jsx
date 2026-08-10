@@ -164,11 +164,12 @@ export const InteractiveGlobe = () => {
       const W = canvas.width;
       const H = canvas.height;
 
-      // Position globe on the right half on desktop, and centered below text on mobile
-      const isMobile = W < 1024;
-      const cx = isMobile ? W / 2 : W * 0.68;
-      const cy = isMobile ? H * 0.68 : H * 0.50;
-      const R = Math.min(W, H) * (isMobile ? 0.35 : 0.42);
+      // Breakpoint-responsive positioning for mobile, tablet, and desktop viewports
+      const isSmallMobile = W < 640;
+      const isTablet = W >= 640 && W < 1024;
+      const cx = isTablet || isSmallMobile ? W / 2 : W * 0.68;
+      const cy = isSmallMobile ? H * 0.72 : isTablet ? H * 0.68 : H * 0.50;
+      const R = Math.min(W, H) * (isSmallMobile ? 0.28 : isTablet ? 0.34 : 0.40);
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 

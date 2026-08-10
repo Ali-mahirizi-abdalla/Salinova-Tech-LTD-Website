@@ -54,11 +54,15 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
   body {
     background-color: var(--color-navy);
     color: var(--color-text);
     font-family: var(--font-family-inter);
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 

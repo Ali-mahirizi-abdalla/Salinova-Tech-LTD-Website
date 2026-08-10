@@ -196,14 +196,14 @@ export const Home = () => {
                 Expertise in <TypingEffect words={typingWords} />
               </div>
 
-              <div className="flex flex-wrap items-center gap-3">
-                <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3.5 px-6">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+                <Button to="/contact" variant="primary" className="text-sm sm:text-base py-3.5 px-6 text-center">
                   Book Free Consultation →
                 </Button>
-                <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3.5 px-6">
+                <Button to="/services" variant="secondary" className="text-sm sm:text-base py-3.5 px-6 text-center">
                   Explore Services →
                 </Button>
-                <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3.5 px-6">
+                <Button to="/academy" variant="ghost" className="text-sm sm:text-base py-3.5 px-6 text-center">
                   Join Academy →
                 </Button>
               </div>
