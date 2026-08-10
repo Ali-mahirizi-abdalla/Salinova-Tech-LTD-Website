@@ -20,7 +20,7 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
           <div className="w-16 h-16 rounded-2xl bg-teal/10 flex items-center justify-center text-teal mb-6">
             {icon}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">{title}</h2>
           <p className="text-text-muted text-lg mb-8 leading-relaxed">{desc}</p>
           <Button to={ctaLink} variant="primary">{ctaText}</Button>
         </motion.div>
@@ -39,7 +39,7 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
             </div>
           )}
           <Card className="bg-navy-light shadow-2xl">
-            <h3 className="text-xl font-bold text-white mb-6">Key Capabilities</h3>
+            <h3 className="text-xl font-bold text-text mb-6">Key Capabilities</h3>
             <ul className="space-y-4">
               {features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-3">
@@ -85,7 +85,7 @@ export const Services = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight"
           >
             Our <span className="text-teal">Services</span>
           </motion.h1>
@@ -150,7 +150,7 @@ export const Services = () => {
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-6 lg:px-12">
           <Card className="text-center p-12 bg-teal/5 border-teal/20 shadow-none">
-            <h2 className="text-3xl font-bold text-white mb-4">Not sure what you need?</h2>
+            <h2 className="text-3xl font-bold text-text mb-4">Not sure what you need?</h2>
             <p className="text-text-muted mb-8 max-w-xl mx-auto">Schedule a free consultation with our technology experts to discuss your business challenges and potential solutions.</p>
             <Button to="/contact" variant="primary">Book Free Consultation →</Button>
           </Card>

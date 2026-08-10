@@ -20,7 +20,7 @@ const AcademyPlan = ({ icon, title, duration, price, priceNote, features, highli
       )}
       <div className="text-teal text-2xl mb-4">{icon}</div>
       <span className="text-xs font-bold uppercase tracking-widest text-text-muted mb-1">{level}</span>
-      <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+      <h3 className="text-xl font-bold text-text mb-2">{title}</h3>
       <p className="text-text-muted text-sm mb-6">{duration}</p>
       <div className="mb-6">
         <span className="text-4xl font-bold text-teal">{price}</span>
@@ -55,7 +55,7 @@ const BusinessPlan = ({ name, subtitle, price, priceNote, features, highlight })
       )}
       <div className="flex items-center gap-2 mb-2">
         {highlight && <FaStar className="text-teal" />}
-        <h3 className="text-xl font-bold text-white">{name}</h3>
+        <h3 className="text-xl font-bold text-text">{name}</h3>
       </div>
       <p className="text-text-muted text-sm mb-4">{subtitle}</p>
       <div className="mb-6 pb-6 border-b border-teal/10">
@@ -212,7 +212,7 @@ export const Pricing = () => {
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-block text-teal text-sm font-bold uppercase tracking-widest mb-4">
             Transparent Pricing
           </motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight">
             Simple, Fair <span className="text-teal">Pricing</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-lg text-text-muted max-w-2xl mx-auto mb-10">
@@ -223,13 +223,13 @@ export const Pricing = () => {
           <div className="inline-flex bg-navy-light rounded-xl p-1 border border-teal/10">
             <button
               onClick={() => setActiveTab('academy')}
-              className={`px-6 py-3 rounded-lg font-semibold text-sm transition-all ${activeTab === 'academy' ? 'bg-teal text-navy' : 'text-text-muted hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg font-semibold text-sm transition-all ${activeTab === 'academy' ? 'bg-teal text-navy' : 'text-text-muted hover:text-text'}`}
             >
               <FaGraduationCap className="inline mr-2" /> Academy Courses
             </button>
             <button
               onClick={() => setActiveTab('business')}
-              className={`px-6 py-3 rounded-lg font-semibold text-sm transition-all ${activeTab === 'business' ? 'bg-teal text-navy' : 'text-text-muted hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg font-semibold text-sm transition-all ${activeTab === 'business' ? 'bg-teal text-navy' : 'text-text-muted hover:text-text'}`}
             >
               <FaCode className="inline mr-2" /> Business Services
             </button>
@@ -242,7 +242,7 @@ export const Pricing = () => {
         <div className="container mx-auto px-6 lg:px-12">
           {activeTab === 'academy' ? (
             <>
-              <h2 className="text-2xl font-bold text-white text-center mb-4">Academy Course Pricing</h2>
+              <h2 className="text-2xl font-bold text-text text-center mb-4">Academy Course Pricing</h2>
               <p className="text-text-muted text-center mb-12 max-w-xl mx-auto">All courses include live sessions, mentorship, project reviews, and a certificate. Group discounts available for 5+ students.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mt-8">
                 {academyCourses.map((c, i) => <AcademyPlan key={i} {...c} />)}
@@ -250,7 +250,7 @@ export const Pricing = () => {
             </>
           ) : (
             <>
-              <h2 className="text-2xl font-bold text-white text-center mb-4">Business Service Pricing</h2>
+              <h2 className="text-2xl font-bold text-text text-center mb-4">Business Service Pricing</h2>
               <p className="text-text-muted text-center mb-12 max-w-xl mx-auto">Every business is unique. These are starting points — book a free call and we'll scope your exact project within 24 hours.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mt-8">
                 {businessPlans.map((p, i) => <BusinessPlan key={i} {...p} />)}
@@ -263,7 +263,7 @@ export const Pricing = () => {
       {/* FAQ */}
       <section className="py-20 bg-navy-light/30 border-t border-teal/10">
         <div className="container mx-auto px-6 lg:px-12 max-w-3xl">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-text text-center mb-12">Frequently Asked Questions</h2>
           {[
             { q: 'Do you offer payment plans?', a: 'Yes! We offer flexible installment plans for academy courses. Pay 50% upfront and the rest over the course duration.' },
             { q: 'Are there group discounts?', a: 'We offer 15% discount for groups of 5 or more from the same organization. Corporate packages are also available.' },
@@ -271,7 +271,7 @@ export const Pricing = () => {
             { q: 'Do you provide ongoing support after delivery?', a: 'All projects include a post-launch support period. We also offer monthly maintenance retainers for long-term clients.' },
           ].map(({ q, a }, i) => (
             <div key={i} className="mb-6 pb-6 border-b border-teal/10 last:border-0">
-              <h3 className="text-white font-semibold mb-2">{q}</h3>
+              <h3 className="text-text font-semibold mb-2">{q}</h3>
               <p className="text-text-muted">{a}</p>
             </div>
           ))}
@@ -281,7 +281,7 @@ export const Pricing = () => {
       {/* CTA */}
       <section className="py-20 text-center">
         <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Not sure which option is right for you?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Not sure which option is right for you?</h2>
           <p className="text-text-muted mb-8 max-w-xl mx-auto">Book a free 30-minute consultation. We'll understand your goals and recommend the best path forward.</p>
           <Button to="/contact" variant="primary" className="text-lg px-8 py-4">Book a Free Consultation →</Button>
         </div>

@@ -92,12 +92,12 @@ const IndustrySection = ({ industry, reverse, index }) => (
       >
         <span className="inline-block text-teal text-xs font-bold uppercase tracking-widest bg-teal/10 px-3 py-1 rounded-full mb-4">{industry.tag}</span>
         <div className="text-teal mb-4">{industry.icon}</div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">{industry.title}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-text mb-5 leading-tight">{industry.title}</h2>
         <p className="text-text-muted text-lg mb-8 leading-relaxed">{industry.description}</p>
 
         {/* Pain Points */}
         <div className="mb-8">
-          <h3 className="text-white font-semibold mb-4">Common Challenges</h3>
+          <h3 className="text-text font-semibold mb-4">Common Challenges</h3>
           <ul className="space-y-2">
             {industry.painPoints.map((p, i) => (
               <li key={i} className="flex items-start gap-3 text-text-muted text-sm">
@@ -125,7 +125,7 @@ const IndustrySection = ({ industry, reverse, index }) => (
           </div>
         )}
         <Card>
-          <h3 className="text-white font-bold text-lg mb-5">Our Solutions</h3>
+          <h3 className="text-text font-bold text-lg mb-5">Our Solutions</h3>
           <ul className="space-y-3">
             {industry.solutions.map((s, i) => (
               <li key={i} className="flex items-start gap-3 text-sm text-text-muted">
@@ -177,7 +177,7 @@ export const Industries = () => {
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-block text-teal text-sm font-bold uppercase tracking-widest mb-4">
             Industry Solutions
           </motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight">
             Technology Built for <span className="text-teal">Your Industry</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-lg text-text-muted max-w-2xl mx-auto">
@@ -203,7 +203,7 @@ export const Industries = () => {
       {/* CTA */}
       <section className="py-20 bg-teal/5">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Don't see your industry?</h2>
+          <h2 className="text-3xl font-bold text-text mb-4">Don't see your industry?</h2>
           <p className="text-text-muted mb-8 max-w-xl mx-auto">
             We work with businesses across all sectors. Tell us your challenge and we'll design a solution that fits.
           </p>

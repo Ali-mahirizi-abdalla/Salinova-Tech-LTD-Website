@@ -20,7 +20,7 @@ export const WhatsAppButton = () => {
         target="_blank"
         rel="noopener noreferrer"
         title="Chat with us on WhatsApp"
-        className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-400 text-white rounded-full shadow-[0_4px_20px_rgba(34,197,94,0.5)] hover:shadow-[0_4px_30px_rgba(34,197,94,0.8)] transition-all duration-300 hover:scale-110"
+        className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-400 text-text rounded-full shadow-[0_4px_20px_rgba(34,197,94,0.5)] hover:shadow-[0_4px_30px_rgba(34,197,94,0.8)] transition-all duration-300 hover:scale-110"
         style={{ animation: 'whatsappPulse 2.5s ease-in-out infinite' }}
       >
         <FaWhatsapp size={28} />

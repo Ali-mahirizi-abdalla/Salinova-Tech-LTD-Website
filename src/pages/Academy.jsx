@@ -16,7 +16,7 @@ const CourseCard = ({ icon, title, duration, level, desc, skills }) => (
         <span className="block text-teal text-xs font-bold uppercase tracking-wider">{level}</span>
       </div>
     </div>
-    <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+    <h3 className="text-xl font-bold text-text mb-3">{title}</h3>
     <p className="text-text-muted text-sm mb-6 flex-grow">{desc}</p>
     <div className="mb-6">
       <h4 className="text-xs text-text-muted uppercase tracking-wider mb-2 font-semibold">Key Skills</h4>
@@ -119,7 +119,7 @@ export const Academy = () => {
           <motion.h1 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight"
           >
             Salinova Tech <span className="text-teal">Academy</span>
           </motion.h1>
@@ -152,7 +152,7 @@ export const Academy = () => {
       <section id="programs" className="py-24">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">Our Programs</h2>
+            <h2 className="text-3xl font-bold text-text mb-4">Our Programs</h2>
             <p className="text-text-muted">Master the skills that employers are looking for.</p>
           </div>
           
@@ -175,7 +175,7 @@ export const Academy = () => {
       {/* Learning Model */}
       <section className="py-20 bg-teal/5">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-12">How We Teach</h2>
+          <h2 className="text-3xl font-bold text-text mb-12">How We Teach</h2>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {learningModels.map((model, idx) => (
               <div key={idx} className="flex flex-col items-center max-w-[120px]">

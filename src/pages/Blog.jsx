@@ -81,7 +81,7 @@ const PostCard = ({ post, index }) => (
           <span className="flex items-center gap-1"><FaUser className="text-teal" /> {post.author}</span>
           <span>{post.date}</span>
         </div>
-        <h2 className="text-lg font-bold text-white mb-3 group-hover:text-teal transition-colors leading-snug">
+        <h2 className="text-lg font-bold text-text mb-3 group-hover:text-teal transition-colors leading-snug">
           {post.title}
         </h2>
         <p className="text-text-muted text-sm leading-relaxed mb-5 flex-grow">{post.excerpt}</p>
@@ -140,7 +140,7 @@ export const Blog = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight"
           >
             Blog & <span className="text-teal">Knowledge Hub</span>
           </motion.h1>
@@ -170,7 +170,7 @@ export const Blog = () => {
       {/* CTA */}
       <section className="py-20 bg-teal/5 border-t border-teal/10">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Build Your Tech Future?</h2>
+          <h2 className="text-3xl font-bold text-text mb-4">Ready to Build Your Tech Future?</h2>
           <p className="text-text-muted mb-8 max-w-xl mx-auto">
             Whether you are looking to upskill your team or secure your business — we are here to help.
           </p>

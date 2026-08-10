@@ -49,7 +49,7 @@ export const CaseStudies = () => {
     <div className="py-20">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Case Studies</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-text mb-4">Case Studies</h1>
           <p className="text-xl text-teal">Real solutions. Real results.</p>
         </div>
 
@@ -59,20 +59,20 @@ export const CaseStudies = () => {
               <div className="absolute top-0 right-0 bg-teal text-navy font-bold px-6 py-2 rounded-bl-2xl">
                 {study.industry}
               </div>
-              <h2 className="text-3xl font-bold text-white mb-2 pr-24">{study.title}</h2>
+              <h2 className="text-3xl font-bold text-text mb-2 pr-24">{study.title}</h2>
               <p className="text-teal font-medium mb-8">Client: {study.client}</p>
               
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <h4 className="text-white font-semibold mb-2">The Challenge</h4>
+                  <h4 className="text-text font-semibold mb-2">The Challenge</h4>
                   <p className="text-text-muted text-sm">{study.challenge}</p>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">Our Solution</h4>
+                  <h4 className="text-text font-semibold mb-2">Our Solution</h4>
                   <p className="text-text-muted text-sm">{study.solution}</p>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2">The Results</h4>
+                  <h4 className="text-text font-semibold mb-2">The Results</h4>
                   <p className="text-teal text-sm font-medium">{study.results}</p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export const CaseStudies = () => {
               <div className="bg-navy-light/50 p-6 rounded-xl border-l-4 border-teal flex gap-4">
                 <FaQuoteLeft className="text-teal shrink-0 text-xl opacity-50" />
                 <div>
-                  <p className="text-white italic mb-2">"{study.quote}"</p>
+                  <p className="text-text italic mb-2">"{study.quote}"</p>
                   <p className="text-text-muted text-sm">— {study.author}</p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export const CaseStudies = () => {
         </div>
 
         <div className="text-center bg-teal/5 p-12 rounded-2xl border border-teal/15">
-          <h2 className="text-3xl font-bold text-white mb-4">Want to achieve similar results?</h2>
+          <h2 className="text-3xl font-bold text-text mb-4">Want to achieve similar results?</h2>
           <p className="text-text-muted mb-8 max-w-xl mx-auto">Book a free consultation to discuss how custom software or cybersecurity services can transform your business.</p>
           <Button to="/contact" variant="primary">Book a Free Consultation →</Button>
         </div>

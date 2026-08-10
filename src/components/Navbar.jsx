@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './Button';
+import { ThemeToggle } from './ThemeToggle';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { cn } from '../utils/cn';
 
@@ -97,7 +98,7 @@ export const Navbar = () => {
           : 'bg-transparent py-5'
       )}
     >
-      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
+      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between gap-4">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
@@ -106,7 +107,7 @@ export const Navbar = () => {
             alt="Salinova Tech LTD"
             className="h-9 w-auto object-contain"
           />
-          <span className="text-lg font-bold text-white tracking-tight leading-none whitespace-nowrap">
+          <span className="text-lg font-bold text-text tracking-tight leading-none whitespace-nowrap">
             SALINOVA<span className="text-teal ml-1">TECH</span>
           </span>
         </Link>
@@ -133,21 +134,25 @@ export const Navbar = () => {
           />
         </nav>
 
-        {/* CTA */}
-        <div className="hidden lg:block shrink-0">
+        {/* Desktop Actions (CTA + Theme Toggle) */}
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <ThemeToggle />
           <Button to="/contact" variant="primary" className="py-2 px-5 text-sm whitespace-nowrap">
             Book Consultation →
           </Button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="lg:hidden text-teal text-2xl focus:outline-none shrink-0"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <HiX /> : <HiMenu />}
-        </button>
+        {/* Mobile Header Controls */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
+          <button
+            className="text-teal text-2xl focus:outline-none shrink-0"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <HiX /> : <HiMenu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}

@@ -220,7 +220,7 @@ export const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-        <h1 className="text-4xl font-bold text-white mb-4">Article Not Found</h1>
+        <h1 className="text-4xl font-bold text-text mb-4">Article Not Found</h1>
         <p className="text-text-muted mb-8">This article doesn't exist or may have been moved.</p>
         <Button to="/blog" variant="primary">← Back to Blog</Button>
       </div>
@@ -230,9 +230,9 @@ export const BlogPost = () => {
   // Render simple markdown-like content
   const renderBody = (body) => {
     return body.trim().split('\n').map((line, i) => {
-      if (line.startsWith('## ')) return <h2 key={i} className="text-2xl font-bold text-white mt-10 mb-4">{line.slice(3)}</h2>;
+      if (line.startsWith('## ')) return <h2 key={i} className="text-2xl font-bold text-text mt-10 mb-4">{line.slice(3)}</h2>;
       if (line.startsWith('### ')) return <h3 key={i} className="text-xl font-semibold text-teal mt-8 mb-3">{line.slice(4)}</h3>;
-      if (line.startsWith('**') && line.endsWith('**')) return <p key={i} className="font-bold text-white mb-2">{line.slice(2, -2)}</p>;
+      if (line.startsWith('**') && line.endsWith('**')) return <p key={i} className="font-bold text-text mb-2">{line.slice(2, -2)}</p>;
       if (line.startsWith('- ')) return <li key={i} className="text-text-muted ml-4 list-disc mb-1">{line.slice(2)}</li>;
       if (line.startsWith('```')) return null;
       if (line.trim() === '') return <div key={i} className="mb-2" />;
@@ -253,7 +253,7 @@ export const BlogPost = () => {
           <span className="inline-block text-teal text-xs font-bold uppercase tracking-widest bg-teal/10 px-3 py-1 rounded-full mb-4">
             {post.tag}
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">{post.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-text mb-6 leading-tight">{post.title}</h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted mb-8 pb-8 border-b border-teal/10">
             <span className="flex items-center gap-1"><FaUser className="text-teal" /> {post.author}</span>
             <span className="flex items-center gap-1"><FaClock className="text-teal" /> {post.readTime}</span>
@@ -280,7 +280,7 @@ export const BlogPost = () => {
 
         {/* CTA */}
         <div className="mt-16 p-8 rounded-2xl bg-teal/5 border border-teal/20 text-center">
-          <h3 className="text-2xl font-bold text-white mb-3">Ready to take action?</h3>
+          <h3 className="text-2xl font-bold text-text mb-3">Ready to take action?</h3>
           <p className="text-text-muted mb-6">Book a free consultation with our team or join the academy today.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button to="/contact" variant="primary">Book Free Consultation →</Button>
@@ -288,7 +288,7 @@ export const BlogPost = () => {
               href="https://wa.me/254000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-text font-semibold rounded-lg transition-colors"
             >
               <FaWhatsapp /> Chat on WhatsApp
             </a>

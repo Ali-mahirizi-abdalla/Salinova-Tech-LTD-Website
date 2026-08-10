@@ -57,7 +57,7 @@ export const Contact = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <span className="inline-block text-teal text-sm font-bold uppercase tracking-widest mb-4">Let's Talk</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Book a Free Consultation</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-text mb-4">Book a Free Consultation</h1>
           <p className="text-xl text-text-muted max-w-2xl mx-auto">
             Tell us about your project or training needs. We'll respond within 24 hours with a tailored plan.
           </p>
@@ -66,13 +66,13 @@ export const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+            <h2 className="text-2xl font-bold text-text mb-6">Get in Touch</h2>
             <div className="space-y-5 mb-10">
               {contactItems.map(({ icon, title, value, href }) => (
                 <div key={title} className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center text-teal shrink-0">{icon}</div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">{title}</h4>
+                    <h4 className="text-text font-medium mb-1">{title}</h4>
                     {href ? (
                       <a href={href} className="text-text-muted hover:text-teal transition-colors">{value}</a>
                     ) : (
@@ -104,7 +104,7 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <Card>
-            <h2 className="text-2xl font-bold text-white mb-6">Send a Message</h2>
+            <h2 className="text-2xl font-bold text-text mb-6">Send a Message</h2>
 
             {status === 'success' ? (
               <div className="p-6 bg-teal/10 border border-teal rounded-lg text-teal text-center flex flex-col items-center gap-3">
@@ -117,20 +117,20 @@ export const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2">Full Name *</label>
-                    <input type="text" id="name" name="name" required className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-white placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="Jane Doe" />
+                    <input type="text" id="name" name="name" required className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-text placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="Jane Doe" />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">Email Address *</label>
-                    <input type="email" id="email" name="email" required className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-white placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="jane@company.com" />
+                    <input type="email" id="email" name="email" required className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-text placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="jane@company.com" />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-text-muted mb-2">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-white placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="+254 XXX XXX XXX" />
+                  <input type="tel" id="phone" name="phone" className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-text placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors" placeholder="+254 XXX XXX XXX" />
                 </div>
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-text-muted mb-2">Service of Interest</label>
-                  <select id="service" name="service" className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-teal transition-colors">
+                  <select id="service" name="service" className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-text focus:outline-none focus:border-teal transition-colors">
                     <option value="">Select a service...</option>
                     <option>Software Development</option>
                     <option>Cybersecurity</option>
@@ -141,7 +141,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-text-muted mb-2">Message *</label>
-                  <textarea id="message" name="message" required rows={5} className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-white placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors resize-none" placeholder="Tell us about your project or what you need help with..." />
+                  <textarea id="message" name="message" required rows={5} className="w-full bg-navy border border-teal/20 rounded-lg px-4 py-3 text-text placeholder-text-muted/50 focus:outline-none focus:border-teal transition-colors resize-none" placeholder="Tell us about your project or what you need help with..." />
                 </div>
 
                 {status === 'error' && (

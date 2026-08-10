@@ -7,7 +7,7 @@ export const Button = ({ children, variant = 'primary', className, to, onClick, 
   const variants = {
     primary: "bg-teal text-navy hover:bg-teal-dark shadow-[0_0_15px_rgba(100,255,218,0.3)] hover:shadow-[0_0_25px_rgba(100,255,218,0.5)]",
     secondary: "bg-transparent border border-teal text-teal hover:bg-teal/10",
-    ghost: "bg-transparent text-white hover:bg-white/10"
+    ghost: "bg-transparent text-text hover:bg-white/10"
   };
 
   const classes = cn(baseStyles, variants[variant], className);

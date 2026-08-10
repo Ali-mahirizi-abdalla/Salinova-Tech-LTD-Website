@@ -73,7 +73,7 @@ const StatCard = ({ number, suffix, label }) => {
 
   return (
     <div ref={ref} className="text-center p-8 bg-navy-light/40 backdrop-blur-sm rounded-2xl border border-teal/10 hover:border-teal/30 transition-colors">
-      <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
+      <h3 className="text-4xl md:text-5xl font-bold text-text mb-2">
         {isInView ? <Counter end={number} /> : "0"}<span className="text-teal">{suffix}</span>
       </h3>
       <p className="text-text-muted font-medium">{label}</p>
@@ -180,7 +180,7 @@ export const Home = () => {
                 Next-Gen Technology Partner
               </span>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1] drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text mb-6 leading-[1.1] drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal via-teal-light to-white">
                   Building Skills.
                 </span>
@@ -255,7 +255,7 @@ export const Home = () => {
             ].map(({ initials, name, color }) => (
               <div key={name} title={name} className="flex items-center gap-2 group cursor-default">
                 <div className={`w-10 h-10 rounded-lg bg-navy-light border border-teal/15 flex items-center justify-center font-bold text-sm ${color}`}>{initials}</div>
-                <span className="text-text-muted text-sm font-medium hidden md:block group-hover:text-white transition-colors">{name}</span>
+                <span className="text-text-muted text-sm font-medium hidden md:block group-hover:text-text transition-colors">{name}</span>
               </div>
             ))}
           </div>
@@ -266,7 +266,7 @@ export const Home = () => {
       <section className="py-24 bg-navy-light/30 relative z-10">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">End-to-End Technology Solutions</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">End-to-End Technology Solutions</h2>
             <p className="text-text-muted text-lg">
               From custom software to enterprise security and tech education—we deliver results.
             </p>
@@ -276,7 +276,7 @@ export const Home = () => {
             {services.map((service, idx) => (
               <Card key={idx} className={idx === 3 ? "md:col-span-2 lg:col-span-1" : idx === 4 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""}>
                 {service.icon}
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold text-text mb-3">{service.title}</h3>
                 <p className="text-text-muted mb-6">{service.desc}</p>
                 <Link to={service.link} className="text-teal font-medium hover:text-teal-light inline-flex items-center transition-colors">
                   Learn More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
@@ -293,7 +293,7 @@ export const Home = () => {
       {/* Testimonials */}
       <section className="py-24 relative z-10 overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-16 text-center">What People Say</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-text mb-16 text-center">What People Say</h2>
           
           <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8">
             {testimonials.map((test, idx) => (
@@ -301,7 +301,7 @@ export const Home = () => {
                 <Card className="h-full flex flex-col justify-between border-t-4 border-t-teal">
                   <p className="text-text italic mb-8 text-lg">"{test.quote}"</p>
                   <div>
-                    <h4 className="font-bold text-white">{test.author}</h4>
+                    <h4 className="font-bold text-text">{test.author}</h4>
                     <span className="text-teal text-sm">{test.role}</span>
                   </div>
                 </Card>
@@ -315,7 +315,7 @@ export const Home = () => {
       <section className="py-24 relative z-10">
         <div className="absolute inset-0 bg-gradient-to-r from-teal/20 to-navy-light/50 skew-y-3 transform origin-bottom-left -z-10"></div>
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Ready to build something great?</h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-text mb-4">Ready to build something great?</h2>
           <p className="text-text-muted text-lg mb-10 max-w-xl mx-auto">Book a free 30-minute consultation. No commitment — just a conversation about your goals.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button to="/contact" variant="primary" className="text-lg px-8 py-4">Book a Free Consultation →</Button>

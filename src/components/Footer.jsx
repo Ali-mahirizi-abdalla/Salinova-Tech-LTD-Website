@@ -15,7 +15,7 @@ export const Footer = () => {
               alt="Salinova Tech LTD Logo"
               className="h-9 w-auto object-contain"
             />
-            <span className="text-lg font-bold text-white tracking-tight leading-none">
+            <span className="text-lg font-bold text-text tracking-tight leading-none">
               SALINOVA<span className="text-teal ml-1">TECH LTD</span>
             </span>
           </Link>
