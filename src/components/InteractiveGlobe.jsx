@@ -116,12 +116,12 @@ const NETWORK_ARCS = [
 ];
 
 const TELEMETRY_LABELS = [
-  { x:  0.68, y: -0.50, text: '653.654', val: 'SYS_OK' },
-  { x:  0.72, y: -0.15, text: '483.215', val: 'SEC_ACTIVE' },
-  { x:  0.65, y:  0.30, text: '457.266', val: 'ENC_TLS1.3' },
-  { x:  0.45, y:  0.65, text: '451.246', val: 'LAT_12ms' },
-  { x: -0.40, y:  0.65, text: '62.128',  val: 'NODE_KE' },
-  { x:  0.10, y: -0.68, text: '238.510', val: 'OPS_99.9%' },
+  { x: -0.65, y: -0.58, text: '653.654', val: 'SYS_OK' },
+  { x:  0.65, y: -0.58, text: '483.215', val: 'SEC_ACTIVE' },
+  { x:  0.65, y:  0.48, text: '457.266', val: 'ENC_TLS1.3' },
+  { x: -0.65, y:  0.48, text: '451.246', val: 'LAT_12ms' },
+  { x: -0.35, y:  0.72, text: '62.128',  val: 'NODE_KE' },
+  { x:  0.05, y: -0.72, text: '238.510', val: 'OPS_99.9%' },
 ];
 
 function latLngToXYZ(lat, lng, rotY) {
@@ -164,11 +164,10 @@ export const InteractiveGlobe = () => {
       const W = canvas.width;
       const H = canvas.height;
 
-      // Position globe in the right column on desktop, and below text on mobile
-      const isMobile = W < 1024;
-      const cx = isMobile ? W / 2 : W * 0.66;
-      const cy = isMobile ? H * 0.68 : H * 0.50;
-      const R = Math.min(W, H) * (isMobile ? 0.34 : 0.34);
+      // Globe is perfectly centered inside its parent 3D viewport canvas
+      const cx = W / 2;
+      const cy = H / 2;
+      const R = Math.min(W, H) * 0.38;
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 
