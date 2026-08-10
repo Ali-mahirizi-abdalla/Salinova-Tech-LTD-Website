@@ -116,12 +116,12 @@ const NETWORK_ARCS = [
 ];
 
 const TELEMETRY_LABELS = [
-  { x: -0.75, y: -0.65, text: '653.654', val: 'SYS_OK' },
-  { x:  0.72, y: -0.60, text: '483.215', val: 'SEC_ACTIVE' },
-  { x:  0.65, y:  0.22, text: '457.266', val: 'ENC_TLS1.3' },
-  { x:  0.60, y:  0.55, text: '451.246', val: 'LAT_12ms' },
-  { x: -0.62, y:  0.62, text: '62.128',  val: 'NODE_KE' },
-  { x:  0.15, y:  0.76, text: '238.510', val: 'OPS_99.9%' },
+  { x:  0.68, y: -0.50, text: '653.654', val: 'SYS_OK' },
+  { x:  0.72, y: -0.15, text: '483.215', val: 'SEC_ACTIVE' },
+  { x:  0.65, y:  0.30, text: '457.266', val: 'ENC_TLS1.3' },
+  { x:  0.45, y:  0.65, text: '451.246', val: 'LAT_12ms' },
+  { x: -0.40, y:  0.65, text: '62.128',  val: 'NODE_KE' },
+  { x:  0.10, y: -0.68, text: '238.510', val: 'OPS_99.9%' },
 ];
 
 function latLngToXYZ(lat, lng, rotY) {
@@ -166,9 +166,9 @@ export const InteractiveGlobe = () => {
 
       // Position globe in the right column on desktop, and below text on mobile
       const isMobile = W < 1024;
-      const cx = isMobile ? W / 2 : W * 0.70;
-      const cy = isMobile ? H * 0.65 : H * 0.50;
-      const R = Math.min(W, H) * (isMobile ? 0.34 : 0.38);
+      const cx = isMobile ? W / 2 : W * 0.66;
+      const cy = isMobile ? H * 0.68 : H * 0.50;
+      const R = Math.min(W, H) * (isMobile ? 0.34 : 0.34);
       const dpr = window.devicePixelRatio;
       const rot = rotRef.current;
 
