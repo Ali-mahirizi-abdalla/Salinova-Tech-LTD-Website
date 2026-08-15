@@ -6,7 +6,7 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('salinova_theme');
     if (saved) return saved;
-    return 'dark'; // default dark theme
+    return 'light'; // default light theme
   });
 
   useEffect(() => {

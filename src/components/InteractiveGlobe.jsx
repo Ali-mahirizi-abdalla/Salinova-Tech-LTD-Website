@@ -396,25 +396,37 @@ export const InteractiveGlobe = () => {
         ctx.shadowBlur = 0;
       });
 
-      // 9. Futuristic Telemetry Labels HUD
-      ctx.font = `${10 * dpr}px 'Courier New', monospace`;
-      TELEMETRY_LABELS.forEach(({ x, y, text, val }) => {
-        const lx = cx + x * R * 1.45;
-        const ly = cy + y * R * 1.45;
+      // 9. Futuristic Telemetry Labels HUD (hidden on small mobile)
+      if (!isSmallMobile) {
+        const labelW = 92 * dpr;
+        const labelH = 20 * dpr;
+        const edgePad = 6 * dpr;
+        const spread = isTablet ? 1.28 : 1.22;
+        ctx.font = `${10 * dpr}px 'Courier New', monospace`;
 
-        ctx.fillStyle = 'rgba(10, 25, 47, 0.85)';
-        ctx.strokeStyle = 'rgba(100, 255, 218, 0.45)';
-        ctx.lineWidth = 1.0 * dpr;
-        ctx.beginPath();
-        ctx.roundRect(lx - 4 * dpr, ly - 12 * dpr, 90 * dpr, 20 * dpr, 4 * dpr);
-        ctx.fill();
-        ctx.stroke();
+        TELEMETRY_LABELS.forEach(({ x, y, text, val }) => {
+          // Raw position
+          let lx = cx + x * R * spread;
+          let ly = cy + y * R * spread;
 
-        ctx.fillStyle = '#64FFDA';
-        ctx.fillText(text, lx, ly);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fillText(val, lx + 48 * dpr, ly);
-      });
+          // Clamp so the box never exceeds canvas bounds
+          lx = Math.max(edgePad, Math.min(W - labelW - edgePad, lx));
+          ly = Math.max(labelH + edgePad, Math.min(H - edgePad, ly));
+
+          ctx.fillStyle = 'rgba(7, 20, 38, 0.88)';
+          ctx.strokeStyle = 'rgba(94, 242, 214, 0.40)';
+          ctx.lineWidth = 1.0 * dpr;
+          ctx.beginPath();
+          ctx.roundRect(lx - 4 * dpr, ly - 13 * dpr, labelW, labelH, 4 * dpr);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#5EF2D6';
+          ctx.fillText(text, lx, ly);
+          ctx.fillStyle = 'rgba(241, 247, 255, 0.88)';
+          ctx.fillText(val, lx + 50 * dpr, ly);
+        });
+      }
 
       animRef.current = requestAnimationFrame(draw);
     };

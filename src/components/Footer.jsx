@@ -1,34 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaTwitter, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { Logo } from './Logo';
+import { FaLinkedin, FaTwitter, FaYoutube, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
-    <footer className="bg-navy-light pt-16 pb-8 border-t border-teal/10 mt-auto">
-      <div className="container mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-navy pt-12 sm:pt-16 pb-8 mt-auto font-inter">
+      <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-14">
 
-        {/* Brand */}
-        <div className="lg:col-span-1">
+        {/* Column 1: Brand */}
+        <div>
           <Link to="/" className="flex items-center gap-3 mb-4 group">
-            <img
-              src="/assets/logo-white.png"
-              alt="Salinova Tech LTD Logo"
-              className="h-9 w-auto object-contain"
-            />
-            <span className="text-lg font-bold text-text tracking-tight leading-none">
-              SALINOVA<span className="text-teal ml-1">TECH LTD</span>
-            </span>
+            <Logo size={36} className="transition-transform group-hover:scale-105" />
+            <div className="flex flex-col justify-center">
+              <span className="text-[18px] font-bold text-gold tracking-wide leading-none">
+                SALINOVA TECH LTD
+              </span>
+              <span className="text-[10px] font-medium text-white/80 tracking-tight mt-0.5 uppercase">
+                Building Skills. Creating Solutions.
+              </span>
+            </div>
           </Link>
-          <p className="text-text-muted text-sm leading-relaxed mb-6">
-            Building Skills. Creating Solutions. Custom software development and cybersecurity for businesses across Kenya and East Africa.
+          <p className="text-white/70 text-[14px] leading-relaxed mb-6">
+            Empowering businesses and individuals through technology, education, and innovation.
           </p>
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             {[
-              { icon: <FaLinkedin size={16} />, href: 'https://www.linkedin.com/in/ali-mahirizi-abdalla-39869a349/', label: 'LinkedIn' },
-              { icon: <FaTwitter size={16} />, href: 'https://x.com/MahrezAli', label: 'Twitter / X' },
-              { icon: <FaYoutube size={16} />, href: '#', label: 'YouTube' },
-              { icon: <FaInstagram size={16} />, href: 'https://www.instagram.com/salinovatech?igsh=NXkxNGxwcTk2dDNs', label: 'Instagram' },
-              { icon: <FaWhatsapp size={16} />, href: 'https://wa.me/254750168458', label: 'WhatsApp' },
+              { icon: <FaLinkedin size={18} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+              { icon: <FaTwitter size={18} />, href: 'https://twitter.com', label: 'Twitter' },
+              { icon: <FaYoutube size={18} />, href: 'https://youtube.com', label: 'YouTube' },
+              { icon: <FaInstagram size={18} />, href: 'https://instagram.com', label: 'Instagram' },
             ].map(({ icon, href, label }) => (
               <a
                 key={label}
@@ -36,7 +37,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full bg-navy border border-teal/15 flex items-center justify-center text-text-muted hover:text-teal hover:border-teal/50 transition-all"
+                className="text-gold hover:text-white transition-colors"
               >
                 {icon}
               </a>
@@ -44,64 +45,72 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Services */}
+        {/* Column 2: Quick Links */}
         <div>
-          <h4 className="text-text font-semibold mb-5 uppercase text-xs tracking-widest">Services</h4>
-          <ul className="space-y-3 text-sm">
+          <h4 className="text-gold font-semibold text-[16px] mb-6">Quick Links</h4>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-[14px]">
             {[
-              { label: 'Software Development', to: '/services#software' },
-              { label: 'Cybersecurity', to: '/services#cybersecurity' },
-              { label: 'AI & Innovation', to: '/services#ai' },
-              { label: 'Industries', to: '/industries' },
-              { label: 'Pricing', to: '/pricing' },
-            ].map(({ label, to }) => (
-              <li key={label}><Link to={to} className="text-text-muted hover:text-teal transition-colors">{label}</Link></li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div>
-          <h4 className="text-text font-semibold mb-5 uppercase text-xs tracking-widest">Company</h4>
-          <ul className="space-y-3 text-sm">
-            {[
-              { label: 'Academy', to: '/academy' },
-              { label: 'Blog & Resources', to: '/blog' },
-              { label: 'Case Studies', to: '/case-studies' },
+              { label: 'Home', to: '/' },
               { label: 'About Us', to: '/about' },
+              { label: 'Services', to: '/services' },
+              { label: 'Blog', to: '/blog' },
+              { label: 'Academy', to: '/academy' },
               { label: 'Contact', to: '/contact' },
+              { label: 'Industries', to: '/industries' },
+              { label: 'Careers', to: '/careers' },
             ].map(({ label, to }) => (
-              <li key={label}><Link to={to} className="text-text-muted hover:text-teal transition-colors">{label}</Link></li>
+              <Link key={label} to={to} className="text-white/70 hover:text-gold transition-colors">{label}</Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Column 3: Services */}
+        <div>
+          <h4 className="text-gold font-semibold text-[16px] mb-6">Our Services</h4>
+          <ul className="space-y-3 text-[14px]">
+            {[
+              'Software Development', 'Cybersecurity Consulting', 'Tech Academy',
+              'IT Solutions', 'AI & Automation', 'Cloud Solutions', 'DevOps', 'UI/UX Design',
+            ].map((s) => (
+              <li key={s}><Link to="/services" className="text-white/70 hover:text-gold transition-colors">{s}</Link></li>
             ))}
           </ul>
         </div>
 
-        {/* Contact */}
+        {/* Column 4: Contact + Newsletter */}
         <div>
-          <h4 className="text-text font-semibold mb-5 uppercase text-xs tracking-widest">Contact</h4>
-          <ul className="space-y-3 text-text-muted text-sm">
-            <li>📍 Kilifi County, Kenya</li>
-            <li><a href="mailto:info@salinovatech.com" className="hover:text-teal transition-colors">📧 info@salinovatech.com</a></li>
-            <li><a href="tel:+254750168458" className="hover:text-teal transition-colors">📞 +254 750 168 458</a></li>
-            <li>🕐 Mon–Fri: 8:00 AM – 6:00 PM EAT</li>
+          <h4 className="text-gold font-semibold text-[16px] mb-6">Get in Touch</h4>
+          <ul className="space-y-3 text-[14px] text-white/70 mb-8">
+            <li className="flex items-start gap-3"><FaMapMarkerAlt className="text-gold mt-0.5 shrink-0" /> Nairobi, Kenya</li>
+            <li className="flex items-start gap-3"><FaPhoneAlt className="text-gold mt-0.5 shrink-0" /> <a href="tel:+254750168458" className="hover:text-gold transition-colors">+254 750 168 458</a></li>
+            <li className="flex items-start gap-3"><FaEnvelope className="text-gold mt-0.5 shrink-0" /> <a href="mailto:alimahrez744@gmail.com" className="hover:text-gold transition-colors">alimahrez744@gmail.com</a></li>
+            <li className="flex items-start gap-3"><FaClock className="text-gold mt-0.5 shrink-0" /> Mon-Fri: 8:00 AM – 6:00 PM EAT</li>
           </ul>
-          <div className="mt-6">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center w-full px-4 py-3 bg-teal/10 border border-teal/30 rounded-lg text-teal text-sm font-semibold hover:bg-teal/20 transition-colors text-center"
+          <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full bg-navy-light border border-gold/20 rounded-md px-4 py-2.5 text-white placeholder-white/40 text-[14px] focus:outline-none focus:border-gold transition-colors"
+            />
+            <button
+              type="submit"
+              className="bg-gold-gradient text-white font-semibold text-[14px] py-2.5 rounded-md hover:brightness-110 transition-all text-center"
             >
-              Book a Free Consultation →
-            </Link>
-          </div>
+              Subscribe →
+            </button>
+          </form>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="container mx-auto px-6 lg:px-12 border-t border-teal/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-text-muted text-sm">
-        <p>© 2026 Salinova Tech LTD. All rights reserved.</p>
-        <div className="flex gap-6">
-
-          <Link to="/contact" className="hover:text-teal transition-colors">Privacy Policy</Link>
+      {/* Bottom Bar */}
+      <div className="container mx-auto px-6 lg:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-white/50 text-[14px]">© 2026 Salinova Tech LTD. All rights reserved.</p>
+        <div className="flex gap-4 text-[14px]">
+          <Link to="/privacy" className="text-white/50 hover:text-gold transition-colors">Privacy Policy</Link>
+          <span className="text-white/20">|</span>
+          <Link to="/terms" className="text-white/50 hover:text-gold transition-colors">Terms of Service</Link>
+          <span className="text-white/20">|</span>
+          <Link to="/cookies" className="text-white/50 hover:text-gold transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </footer>

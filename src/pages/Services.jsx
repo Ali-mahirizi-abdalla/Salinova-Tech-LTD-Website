@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { SEO } from '../components/SEO';
-import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaCheckCircle } from 'react-icons/fa';
+import { FaLaptopCode, FaShieldAlt, FaGraduationCap, FaRobot, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 
 const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, reverse, imgSrc }) => {
   return (
-    <section id={id} className="py-20 border-b border-teal/10 last:border-b-0 relative z-10">
-      <div className={`container mx-auto px-6 lg:px-12 flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12`}>
+    <section id={id} className="py-20 border-b border-slate-200 last:border-b-0 relative z-10 bg-white">
+      <div className={`container mx-auto px-6 lg:px-12 flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12`}>
         
         <motion.div 
           initial={{ opacity: 0, x: reverse ? 50 : -50 }}
@@ -17,12 +16,15 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
           transition={{ duration: 0.6 }}
           className="flex-1"
         >
-          <div className="w-16 h-16 rounded-2xl bg-teal/10 flex items-center justify-center text-teal mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-navy text-gold flex items-center justify-center text-2xl mb-6 shadow-md">
             {icon}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">{title}</h2>
-          <p className="text-text-muted text-lg mb-8 leading-relaxed">{desc}</p>
-          <Button to={ctaLink} variant="primary">{ctaText}</Button>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mb-4 tracking-tight">{title}</h2>
+          <p className="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed font-medium">{desc}</p>
+          <Button to={ctaLink} variant="primary" className="bg-gold-gradient text-white font-bold py-3 px-6 rounded-lg shadow-md shadow-gold/20 flex items-center gap-2">
+            <span>{ctaText}</span>
+            <FaArrowRight className="text-xs" />
+          </Button>
         </motion.div>
 
         <motion.div 
@@ -33,22 +35,21 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
           className="flex-1 w-full flex flex-col gap-6"
         >
           {imgSrc && (
-            <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-teal/20 relative group shadow-[0_0_20px_rgba(100,255,218,0.1)]">
-              <div className="absolute inset-0 bg-navy/40 group-hover:bg-transparent transition-colors z-10 duration-500 pointer-events-none"></div>
-              <img src={imgSrc} alt={title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-200 relative group shadow-xl">
+              <img src={imgSrc} alt={title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 filter brightness-95" />
             </div>
           )}
-          <Card className="bg-navy-light shadow-2xl">
-            <h3 className="text-xl font-bold text-text mb-6">Key Capabilities</h3>
-            <ul className="space-y-4">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <h3 className="text-lg font-bold text-navy mb-4">Core Deliverables & Capabilities</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <FaCheckCircle className="text-teal mt-1 shrink-0" />
-                  <span className="text-text-muted">{feature}</span>
-                </li>
+                <div key={idx} className="flex items-start gap-2.5">
+                  <FaCheckCircle className="text-gold mt-1 shrink-0" />
+                  <span className="text-slate-800 text-sm font-semibold">{feature}</span>
+                </div>
               ))}
-            </ul>
-          </Card>
+            </div>
+          </div>
         </motion.div>
         
       </div>
@@ -57,47 +58,36 @@ const ServiceSection = ({ id, title, desc, features, ctaText, ctaLink, icon, rev
 };
 
 export const Services = () => {
-  
-
   return (
-    <div>
-      <SEO {...{
-    title: 'Services — Custom Software, Cybersecurity & AI | Salinova Tech LTD',
-    description:
-      'Salinova Tech LTD offers web & mobile app development, penetration testing, cybersecurity audits, AI automation, and cloud services in Kenya and East Africa.',
-    path: '/services',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Technology Services',
-      provider: {
-        '@type': 'Organization',
-        name: 'Salinova Tech LTD',
-      },
-      areaServed: 'East Africa',
-    },
-  }} />
+    <div className="bg-white">
+      <SEO
+        title="Services — Custom Software, Cybersecurity & AI | Salinova Tech LTD"
+        description="Salinova Tech LTD offers web & mobile app development, penetration testing, cybersecurity audits, AI automation, and cloud services in Kenya and East Africa."
+        path="/services"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: 'Technology Services',
+          provider: {
+            '@type': 'Organization',
+            name: 'Salinova Tech LTD',
+          },
+          areaServed: 'East Africa',
+        }}
+      />
+
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy z-0">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[100px]"></div>
-        </div>
+      <section className="pt-32 pb-20 bg-navy text-white relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-text mb-6 tracking-tight"
-          >
-            Our <span className="text-teal">Services</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto"
-          >
-            Comprehensive technology solutions designed for modern businesses.
-          </motion.p>
+          <span className="inline-block text-gold font-bold text-xs uppercase tracking-widest mb-4 bg-gold/10 px-4 py-1.5 rounded-full border border-gold/30">
+            Enterprise Solutions & Engineering
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
+            Our <span className="text-gold">Services</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-medium">
+            High-performance technology solutions engineered for growth, compliance, and resilience.
+          </p>
         </div>
       </section>
 
@@ -105,56 +95,61 @@ export const Services = () => {
       <ServiceSection 
         id="software"
         title="Software Development"
-        desc="We build custom software that solves real problems. From responsive websites and mobile apps to complex enterprise systems and SaaS platforms, our development team delivers quality, security, and scalability."
-        features={["Web & Mobile Development", "Enterprise Systems & ERP", "API Development & Integration", "Cloud Applications & SaaS"]}
-        ctaText="Book a Consultation →"
+        desc="We build custom software that solves real problems. From responsive websites and mobile apps to complex enterprise ERPs and SaaS platforms, our engineering team delivers clean code, security, and scalability."
+        features={["Web & Mobile App Development", "Enterprise Systems & ERP", "API Architecture & Integration", "Cloud SaaS Applications"]}
+        ctaText="Book a Consultation"
         ctaLink="/contact"
-        icon={<FaLaptopCode size={32} />}
+        icon={<FaLaptopCode size={28} />}
         reverse={false}
+        imgSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
       />
       
       <ServiceSection 
         id="cybersecurity"
-        title="Cybersecurity"
-        desc="In today's threat landscape, security is non-negotiable. Our cybersecurity team helps organizations identify vulnerabilities, protect sensitive data, and respond to incidents before they become crises."
+        title="Cybersecurity Consulting"
+        desc="In today's threat landscape, security is non-negotiable. Our cybersecurity team helps organizations identify vulnerabilities, protect critical infrastructure, and respond to incidents before they disrupt business operations."
         features={["Penetration Testing & Audits", "Vulnerability Assessments", "Security Awareness Training", "Incident Response & Forensics"]}
-        ctaText="Request Security Audit →"
+        ctaText="Request Security Audit"
         ctaLink="/contact"
-        icon={<FaShieldAlt size={32} />}
+        icon={<FaShieldAlt size={28} />}
         reverse={true}
-        imgSrc="/assets/services.png"
+        imgSrc="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80"
       />
 
       <ServiceSection 
         id="academy"
         title="Technology Academy"
-        desc="Practical training for the digital economy. Our courses are project-based, mentor-led, and designed to get you job-ready. Whether you're a beginner or upskilling, we have a path for you."
-        features={["Full-Stack Web Development (Python/Django)", "Mobile App Development (React Native)", "Cybersecurity & Ethical Hacking", "AI & Cloud Computing"]}
-        ctaText="View Courses →"
+        desc="Practical technology education for the modern workforce. Our courses are project-based, mentor-led, and designed to equip individuals and teams with high-income skills."
+        features={["Full-Stack Web Dev (Python/React)", "Mobile App Development (React Native)", "Cybersecurity & Ethical Hacking", "AI & Machine Learning"]}
+        ctaText="Explore Courses"
         ctaLink="/academy"
-        icon={<FaGraduationCap size={32} />}
+        icon={<FaGraduationCap size={28} />}
         reverse={false}
+        imgSrc="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
       />
 
       <ServiceSection 
         id="ai"
-        title="AI & Innovation"
-        desc="We build AI-powered products and conduct research that solves African challenges. From smart assistants to predictive analytics, we're shaping the future of technology in Africa."
-        features={["AI Assistants & Chatbots", "Predictive Analytics", "Blockchain Research", "IoT Solutions"]}
-        ctaText="Explore AI Solutions →"
+        title="AI & Intelligent Automation"
+        desc="We build custom AI-powered products that streamline operations. From specialized chatbots and predictive analytics to workflow automation, we unlock new efficiencies for your organization."
+        features={["Custom AI Agents & Chatbots", "Predictive Analytics & Dashboards", "Workflow Automation", "Cloud Infrastructure Optimization"]}
+        ctaText="Explore AI Solutions"
         ctaLink="/contact"
-        icon={<FaRobot size={32} />}
+        icon={<FaRobot size={28} />}
         reverse={true}
+        imgSrc="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
       />
 
       {/* Final CTA */}
-      <section className="py-24 relative z-10">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Card className="text-center p-12 bg-teal/5 border-teal/20 shadow-none">
-            <h2 className="text-3xl font-bold text-text mb-4">Not sure what you need?</h2>
-            <p className="text-text-muted mb-8 max-w-xl mx-auto">Schedule a free consultation with our technology experts to discuss your business challenges and potential solutions.</p>
-            <Button to="/contact" variant="primary">Book Free Consultation →</Button>
-          </Card>
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="container mx-auto px-6 lg:px-12 text-center">
+          <div className="max-w-2xl mx-auto bg-white p-10 rounded-3xl border border-slate-200 shadow-xl">
+            <h2 className="text-3xl font-extrabold text-navy mb-4">Not sure what you need?</h2>
+            <p className="text-slate-600 mb-8 font-medium">Schedule a free 30-minute discovery call with our tech architects to assess your requirements and recommend the optimal solution.</p>
+            <Button to="/contact" variant="primary" className="bg-gold-gradient text-white font-bold py-3.5 px-8 rounded-xl shadow-lg shadow-gold/25">
+              Book Free Consultation →
+            </Button>
+          </div>
         </div>
       </section>
     </div>

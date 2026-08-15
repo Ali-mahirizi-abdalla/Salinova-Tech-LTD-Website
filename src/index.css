@@ -1,56 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
-/* ================================================
-   TAILWIND v4 THEME — All custom design tokens
-   ================================================ */
 @theme {
-  /* Colors — Navy */
+  /* ── Core Navy Palette ── */
   --color-navy: #0A192F;
-  --color-navy-light: #172A45;
-  --color-navy-dark: #060C1F;
+  --color-navy-light: #1A2D4A;
+  --color-navy-dark: #050C1A;
 
-  /* Colors — Teal accent */
-  --color-teal: #64FFDA;
-  --color-teal-dark: #4CD8C4;
-  --color-teal-light: #88FFE8;
+  /* ── Gold ── */
+  --color-gold: #C9A84C;
+  --color-gold-light: #D4B85A;
+  --color-gold-dark: #B8923E;
 
-  /* Colors — Orange brand accent (from training materials) */
-  --color-orange: #F96900;
-  --color-orange-dark: #C45200;
-  --color-orange-light: #FFB347;
+  /* ── Primary Aliases ── */
+  --color-primary: #C9A84C;
+  --color-primary-light: #D4B85A;
+  --color-primary-dark: #B8923E;
+  --color-teal: #C9A84C;
+  --color-teal-light: #D4B85A;
+  --color-teal-dark: #B8923E;
 
-  /* Colors — Text */
-  --color-text: #E6F1FF;
-  --color-text-muted: #8892B0;
+  /* ── Whites & Lights ── */
+  --color-white: #FFFFFF;
+  --color-off-white: #F8FAFC;
 
-  /* Typography */
+  /* ── Ultra-Readable High Contrast Text ── */
+  --color-text: #0A192F;
+  --color-text-muted: #334155;
+  --color-text-on-dark: #FFFFFF;
+
+  /* ── Surfaces ── */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
+  --color-card-bg: #FFFFFF;
+  --color-border: #E2E8F0;
+
+  /* ── Typography ── */
   --font-family-inter: 'Inter', sans-serif;
+  --font-family-poppins: 'Poppins', sans-serif;
 
-  /* Animations */
+  /* ── Animations ── */
   --animate-fade-in: fadeIn 0.8s ease-in-out;
   --animate-slide-up: slideUp 0.6s ease-out;
-  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-float: float 6s ease-in-out infinite;
+  --animate-gold-pulse: goldPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
-  /* Keyframes */
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-20px); }
+  @keyframes goldPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.03); }
   }
 }
 
-/* ================================================
-   BASE STYLES
-   ================================================ */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -58,39 +66,67 @@
     width: 100%;
   }
   body {
-    background-color: var(--color-navy);
+    background-color: var(--color-surface);
     color: var(--color-text);
     font-family: var(--font-family-inter);
     overflow-x: hidden;
     width: 100%;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  .light {
-    --color-navy: #F0F4F8;
-    --color-navy-light: #FFFFFF;
-    --color-navy-dark: #E2E8F0;
-    
-    --color-teal: #0D9488;
-    --color-teal-dark: #0F766E;
-    --color-teal-light: #14B8A6;
-    
-    --color-text: #0A192F;
-    --color-text-muted: #475569;
+  h1, h2, h3, h4, h5, h6 {
+    color: #0A192F;
+    font-weight: 700;
+  }
+
+  p {
+    color: #334155;
   }
 }
 
-/* ================================================
-   UTILITIES
-   ================================================ */
+/* Widescreen generous container to eliminate awkward empty side spacing */
+.container {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 @layer utilities {
+  .bg-glass-light {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  }
+
+  .bg-glass-dark {
+    background: rgba(26, 45, 74, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #C9A84C, #B8923E);
+  }
+
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, #0A192F, #1A2D4A);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C9A84C, #B8923E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
-  }
-
-  .font-inter {
-    font-family: var(--font-family-inter);
   }
 }

@@ -10,6 +10,7 @@ import { Contact } from './pages/Contact';
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
 import { Pricing } from './pages/Pricing';
+import { NotFound } from './pages/NotFound';
 import { Industries } from './pages/Industries';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="industries" element={<Industries />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
