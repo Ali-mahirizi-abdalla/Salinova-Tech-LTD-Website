@@ -8,6 +8,7 @@ import {
   FaLandmark, FaHandshake, FaBuilding, FaStar, FaQuoteLeft, FaChevronUp, FaCheckCircle
 } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
+import teamHeroImg from '../assets/team-hero.jpg';
 
 /* ─── Helpers ─── */
 
@@ -242,9 +243,9 @@ export const Home = () => {
             >
               <div className="w-full h-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-navy/15 border-2 border-gold/25 group-hover:border-gold/50 transition-all duration-500">
                 <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
-                  alt="Salinova Tech Engineers collaborating"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={teamHeroImg}
+                  alt="Salinova Tech LTD team collaborating in Nairobi"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/20 to-transparent"></div>
                 
