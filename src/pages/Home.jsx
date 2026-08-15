@@ -239,38 +239,39 @@ export const Home = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="lg:col-span-5 xl:col-span-5 relative h-[320px] sm:h-[420px] md:h-[480px] lg:h-[540px] xl:h-[580px] group w-full"
+              className="lg:col-span-5 xl:col-span-5 relative group w-full flex flex-col gap-3"
             >
-              <div className="w-full h-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-navy/15 border-2 border-gold/25 group-hover:border-gold/50 transition-all duration-500">
+              {/* Full-visible team photo */}
+              <div className="w-full aspect-[3/2] rounded-3xl sm:rounded-[2.5rem] overflow-hidden relative shadow-2xl shadow-navy/15 border-2 border-gold/25 group-hover:border-gold/50 transition-all duration-500 bg-[#0a0f1e]">
                 <img
                   src={teamHeroImg}
                   alt="Salinova Tech LTD team collaborating in Nairobi"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-navy-dark/20 to-transparent"></div>
-                
-                {/* Floating Impact Stats Card */}
-                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xl">
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    {[
-                      { val: '10+', label: 'Students Trained' },
-                      { val: '20+', label: 'Projects Delivered' },
-                      { val: '3+', label: 'Industries Served' },
-                      { val: '99%', label: 'Client Satisfaction' },
-                    ].map((s, i) => (
-                      <div key={i} className="text-center p-2 rounded-xl bg-slate-50 border border-slate-100">
-                        <p className="text-gold-dark font-extrabold text-[16px] sm:text-[18px] leading-none">{s.val}</p>
-                        <p className="text-slate-600 text-[11px] sm:text-[12px] font-bold mt-1">{s.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Top Brand Watermark */}
-                <div className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-navy/90 backdrop-blur-md rounded-xl px-3.5 py-2 flex items-center gap-2 border border-gold/30 shadow-md">
-                  <Logo size={20} />
-                  <span className="text-[10px] font-bold text-white tracking-widest uppercase">Salinova Tech</span>
+                {/* Subtle vignette — bottom only, very light */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+                {/* Tiny brand badge — top-right corner */}
+                <div className="absolute top-3 right-3 bg-navy/85 backdrop-blur-md rounded-lg px-2.5 py-1.5 flex items-center gap-1.5 border border-gold/30 shadow-md">
+                  <Logo size={14} />
+                  <span className="text-[9px] font-bold text-white tracking-widest uppercase">Salinova Tech</span>
                 </div>
+              </div>
+
+              {/* Stats bar below the image */}
+              <div className="grid grid-cols-4 gap-2">
+                {[
+                  { val: '10+', label: 'Students' },
+                  { val: '20+', label: 'Projects' },
+                  { val: '3+', label: 'Industries' },
+                  { val: '99%', label: 'Satisfaction' },
+                ].map((s, i) => (
+                  <div key={i} className="text-center py-3 px-1 rounded-xl bg-white border border-slate-200 shadow-sm">
+                    <p className="text-gold-dark font-extrabold text-[15px] sm:text-[17px] leading-none">{s.val}</p>
+                    <p className="text-slate-500 text-[10px] sm:text-[11px] font-bold mt-1 uppercase tracking-wide">{s.label}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
