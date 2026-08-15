@@ -252,9 +252,9 @@ export const Home = () => {
                 <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xl">
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     {[
-                      { val: '500+', label: 'Students Trained' },
-                      { val: '100+', label: 'Projects Delivered' },
-                      { val: '10+', label: 'Industries Served' },
+                      { val: '10+', label: 'Students Trained' },
+                      { val: '20+', label: 'Projects Delivered' },
+                      { val: '3+', label: 'Industries Served' },
                       { val: '99%', label: 'Client Satisfaction' },
                     ].map((s, i) => (
                       <div key={i} className="text-center p-2 rounded-xl bg-slate-50 border border-slate-100">
@@ -312,9 +312,9 @@ export const Home = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
-              { n: 500, s: '+', l: 'Students Trained & Mentored' },
-              { n: 100, s: '+', l: 'Software Projects Delivered' },
-              { n: 10, s: '+', l: 'Industries Actively Served' },
+              { n: 10, s: '+', l: 'Students Trained & Mentored' },
+              { n: 20, s: '+', l: 'Software Projects Delivered' },
+              { n: 3, s: '+', l: 'Industries Actively Served' },
               { n: 99, s: '%', l: 'Client Satisfaction Rate' },
             ].map((st, i) => (
               <FadeIn key={i} delay={i * 0.1} className="text-center bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm">
