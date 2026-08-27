@@ -1,7 +1,9 @@
+# ─── Default: allow all crawlers ────────────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
 
-# Welcome AI crawlers
+# ─── AI / LLM crawlers ──────────────────────────────────────────────────────
 User-agent: GPTBot
 Allow: /
 
@@ -23,9 +25,9 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# AI content discovery files
-# https://salinovatech.com/llms.txt
-# https://salinovatech.com/llms-full.txt
+# ─── AI content discovery ────────────────────────────────────────────────────
+# https://www.salinovatech.co.ke/llms.txt
+# https://www.salinovatech.co.ke/llms-full.txt
 
-# Sitemap
-Sitemap: https://salinovatech.com/sitemap.xml
+# ─── Sitemap ─────────────────────────────────────────────────────────────────
+Sitemap: https://www.salinovatech.co.ke/sitemap.xml

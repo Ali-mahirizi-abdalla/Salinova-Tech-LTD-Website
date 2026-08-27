@@ -4,56 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>Salinova Tech LTD — Software Development & Cybersecurity | Kenya</title>
-    <meta name="title" content="Salinova Tech LTD — Software Development & Cybersecurity | Kenya" />
-    <meta name="description" content="Salinova Tech LTD is custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions." />
+    <!-- ═══════════════════════════════════════════════════════════════════
+         PRIMARY META TAGS
+         These are the global/fallback tags. Each page overrides title,
+         description, canonical, and OG tags via the SEO.jsx component.
+    ════════════════════════════════════════════════════════════════════ -->
+    <title>Salinova Tech LTD — Software Development &amp; Cybersecurity | Kenya</title>
+    <meta name="title" content="Salinova Tech LTD — Software Development &amp; Cybersecurity | Kenya" />
+    <meta name="description" content="Salinova Tech LTD offers custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions." />
     <meta name="keywords" content="software development Kenya, cybersecurity Kenya, tech training East Africa, Python Django, mobile app development Nairobi, penetration testing Kenya, tech academy Kilifi" />
     <meta name="author" content="Salinova Tech LTD" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://salinovatech.com/" />
+    <!-- ═══════════════════════════════════════════════════════════════════
+         CANONICAL — Points to the production www domain
+    ════════════════════════════════════════════════════════════════════ -->
+    <link rel="canonical" href="https://www.salinovatech.co.ke/" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp previews)
+    ════════════════════════════════════════════════════════════════════ -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://salinovatech.com/" />
-    <meta property="og:title" content="Salinova Tech LTD — Software Development & Cybersecurity | Kenya" />
+    <meta property="og:url" content="https://www.salinovatech.co.ke/" />
+    <meta property="og:title" content="Salinova Tech LTD — Software Development &amp; Cybersecurity | Kenya" />
     <meta property="og:description" content="Custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions." />
-    <meta property="og:image" content="https://salinovatech.com/assets/og-image.png" />
+    <meta property="og:image" content="https://www.salinovatech.co.ke/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Salinova Tech LTD — Software Development &amp; Cybersecurity" />
     <meta property="og:site_name" content="Salinova Tech LTD" />
     <meta property="og:locale" content="en_KE" />
 
-    <!-- Twitter Card -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TWITTER CARD
+    ════════════════════════════════════════════════════════════════════ -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://salinovatech.com/" />
-    <meta name="twitter:title" content="Salinova Tech LTD — Software Development & Cybersecurity" />
-    <meta name="twitter:description" content="Custom software & cybersecurity consulting for businesses across Kenya and East Africa." />
-    <meta name="twitter:image" content="https://salinovatech.com/assets/og-image.png" />
+    <meta name="twitter:site" content="@salinovatech" />
+    <meta name="twitter:url" content="https://www.salinovatech.co.ke/" />
+    <meta name="twitter:title" content="Salinova Tech LTD — Software Development &amp; Cybersecurity" />
+    <meta name="twitter:description" content="Custom software &amp; cybersecurity consulting for businesses across Kenya and East Africa." />
+    <meta name="twitter:image" content="https://www.salinovatech.co.ke/assets/og-image.png" />
+    <meta name="twitter:image:alt" content="Salinova Tech LTD" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <!-- ═══════════════════════════════════════════════════════════════════
+         GOOGLE SEARCH CONSOLE VERIFICATION
+         Replace the content value below with your actual GSC verification token.
+         Steps to get it:
+           1. Go to https://search.google.com/search-console/
+           2. Click "Add property" → enter https://www.salinovatech.co.ke
+           3. Choose "HTML tag" verification method
+           4. Copy the content value from the <meta> tag they give you
+           5. Paste it below and deploy
+    ════════════════════════════════════════════════════════════════════ -->
+    <meta name="google-site-verification" content="REPLACE_WITH_YOUR_GSC_VERIFICATION_TOKEN" />
 
-    <!-- JSON-LD: Organization -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FAVICON — Multiple formats for broad browser/device support
+    ════════════════════════════════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.png" />
+    <link rel="shortcut icon" href="/assets/logo.png" />
+    <meta name="theme-color" content="#0a192f" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         JSON-LD: Organization Schema
+         Update telephone, email, and sameAs URLs with your real details.
+    ════════════════════════════════════════════════════════════════════ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Salinova Tech LTD",
       "alternateName": "Salinova Tech",
-      "url": "https://salinovatech.com",
-      "logo": "https://salinovatech.com/assets/logo.png",
+      "url": "https://www.salinovatech.co.ke",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.salinovatech.co.ke/assets/logo.png",
+        "width": 400,
+        "height": 400
+      },
       "description": "Custom software development and cybersecurity consulting for businesses in Kenya and East Africa, combining practical technology education with enterprise-grade security solutions.",
       "foundingLocation": {
         "@type": "Place",
-        "name": "Kilifi County, Kenya"
+        "name": "Kilifi County, Kenya",
+        "addressCountry": "KE"
       },
-      "areaServed": "East Africa",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kilifi",
+        "addressRegion": "Kilifi County",
+        "addressCountry": "KE"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": -1.2921,
+          "longitude": 36.8219
+        },
+        "description": "East Africa"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+254-000-000-000",
         "contactType": "customer service",
-        "email": "info@salinovatech.com",
+        "email": "info@salinovatech.co.ke",
         "availableLanguage": ["English", "Swahili"]
       },
       "sameAs": [
@@ -64,19 +121,52 @@
     }
     </script>
 
-    <!-- JSON-LD: WebSite with SearchAction -->
+    <!-- ═══════════════════════════════════════════════════════════════════
+         JSON-LD: WebSite Schema
+    ════════════════════════════════════════════════════════════════════ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Salinova Tech LTD",
-      "url": "https://salinovatech.com",
+      "url": "https://www.salinovatech.co.ke",
       "description": "Software development, cybersecurity, and technology education for businesses in Kenya and East Africa.",
+      "inLanguage": "en-KE",
       "publisher": {
         "@type": "Organization",
-        "name": "Salinova Tech LTD"
+        "name": "Salinova Tech LTD",
+        "url": "https://www.salinovatech.co.ke"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.salinovatech.co.ke/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
     }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         GOOGLE ANALYTICS 4 (GA4)
+         ─────────────────────────────────────────────────────────────────
+         HOW TO GET YOUR MEASUREMENT ID:
+           1. Go to https://analytics.google.com
+           2. Click Admin (gear icon, bottom-left)
+           3. Under "Data collection and modification" → Data Streams
+           4. Click your web stream (or create one for salinovatech.co.ke)
+           5. Copy the Measurement ID (format: G-XXXXXXXXXX)
+           6. Replace G-XXXXXXXXXX below AND in src/components/Analytics.jsx
+         ─────────────────────────────────────────────────────────────────
+         Page view tracking on route changes is handled by Analytics.jsx.
+    ════════════════════════════════════════════════════════════════════ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     </script>
   </head>
   <body>

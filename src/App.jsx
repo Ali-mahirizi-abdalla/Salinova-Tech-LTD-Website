@@ -12,10 +12,13 @@ import { BlogPost } from './pages/BlogPost';
 import { Pricing } from './pages/Pricing';
 import { NotFound } from './pages/NotFound';
 import { Industries } from './pages/Industries';
+import { GoogleAnalytics } from './components/Analytics';
 
 function App() {
   return (
     <Router>
+      {/* GoogleAnalytics must be inside <Router> to access useLocation */}
+      <GoogleAnalytics />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
