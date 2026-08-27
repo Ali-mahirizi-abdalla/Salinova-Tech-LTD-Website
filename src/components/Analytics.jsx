@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 // ─── Replace with your real GA4 Measurement ID ───────────────────────────────
 // Get it from: https://analytics.google.com → Admin → Data Streams → your stream
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-QZ82JB63Y7';
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
