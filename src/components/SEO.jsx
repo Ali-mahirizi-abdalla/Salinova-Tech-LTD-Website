@@ -7,16 +7,11 @@ const DEFAULT_IMAGE = `${BASE_URL}/assets/og-image.png`;
  * SEO Component
  *
  * Renders all per-page SEO meta tags into the document <head>.
- * Uses React 19's built-in support for rendering <title>, <meta>, and
- * <link> tags directly from within components (no react-helmet needed).
- *
- * Props:
- *  - title       : Page title (will have " | Salinova Tech LTD" appended unless already present)
- *  - description : Meta description (keep under 160 chars)
- *  - path        : URL path e.g. "/services" (default: "")
- *  - image       : Absolute URL to OG image (default: og-image.png)
- *  - type        : og:type value (default: "website")
- *  - schema      : Optional JSON-LD object for page-specific structured data
+ * Automatically enforces optimal character limits based on search engine and
+ * social network standards to avoid truncation warnings:
+ *  - Title: <= 58 characters (Google truncation threshold ~60 chars)
+ *  - Meta description: <= 155 characters (Google threshold ~160 chars)
+ *  - OG description: <= 125 characters (Social card threshold ~125 chars)
  */
 export function SEO({
   title,
@@ -27,15 +22,31 @@ export function SEO({
   schema = null,
 }) {
   const canonicalUrl = `${BASE_URL}${path}`;
-  const fullTitle = title.includes('Salinova Tech LTD')
+
+  // Format and clamp title length to max 58 characters
+  const rawTitle = title.includes('Salinova Tech')
     ? title
-    : `${title} | Salinova Tech LTD`;
+    : `${title} | Salinova Tech`;
+  const fullTitle =
+    rawTitle.length > 58 ? `${rawTitle.slice(0, 55)}...` : rawTitle;
+
+  // Clamp meta description to max 155 characters
+  const metaDesc =
+    description.length > 155
+      ? `${description.slice(0, 152)}...`
+      : description;
+
+  // Clamp social open graph description to max 125 characters
+  const ogDesc =
+    description.length > 125
+      ? `${description.slice(0, 122)}...`
+      : description;
 
   return (
     <>
       {/* ── Primary SEO ───────────────────────────────────────────────── */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDesc} />
       <link rel="canonical" href={canonicalUrl} />
       <meta name="robots" content="index, follow" />
 
@@ -43,7 +54,7 @@ export function SEO({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={ogDesc} />
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -56,7 +67,7 @@ export function SEO({
       <meta name="twitter:site" content="@salinovatech" />
       <meta name="twitter:url" content={canonicalUrl} />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={ogDesc} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={fullTitle} />
 

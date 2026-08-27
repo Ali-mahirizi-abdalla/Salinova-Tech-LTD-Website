@@ -173,10 +173,10 @@ export const Home = () => {
   return (
     <div className="font-inter bg-white text-navy selection:bg-gold/20 selection:text-navy overflow-x-hidden w-full">
       <SEO
-        title="Salinova Tech LTD — Software Development & Cybersecurity | Kenya"
-        description="Salinova Tech LTD delivers custom enterprise software development, cybersecurity consulting, and technology training in Kenya & East Africa."
+        title="Salinova Tech — Software & Cybersecurity Kenya"
+        description="Custom software development and cybersecurity consulting in Kenya & East Africa. Enterprise security and practical tech education."
         path="/"
-        schema={{ '@context': 'https://schema.org', '@type': 'Organization', name: 'Salinova Tech LTD', url: 'https://salinovatech.com' }}
+        schema={{ '@context': 'https://schema.org', '@type': 'Organization', name: 'Salinova Tech LTD', url: 'https://www.salinovatech.co.ke' }}
       />
 
       {/* ══════════════════════════════════
